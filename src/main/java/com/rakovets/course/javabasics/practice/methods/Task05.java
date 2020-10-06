@@ -13,7 +13,7 @@ import com.rakovets.course.javabasics.util.StandardInputTask;
 public class Task05 extends StandardInputTask {
     public static void main(String[] args) {
         // Ввод данных осуществляется в Standard Input, для проверки различных вариантов входных параметров
-        byte monthNumber = INPUT_SCANNER.nextByte();
+        byte monthNumber = INPUT_SCANNER.nextByte(3);
 
         getNameMonth(monthNumber);
     }
@@ -25,6 +25,47 @@ public class Task05 extends StandardInputTask {
      * @return месяц на английском языке (UPPER CASE)
      */
     static String getNameMonth(byte monthNumber) {
-        return null;
+        switch (monthNumber) {
+            case 0:
+                return null;
+            case 1:
+                return "JANUARY";
+                break;
+            case 2:
+                return "FEBRARY";
+                break;
+            case 3:
+                return "MARCH";
+                break;
+            case 4:
+                return "APRIL";
+                break;
+            case 5:
+                return "MAY";
+                break;
+            case 6:
+                return "JUNE";
+                break;
+            case 7:
+                return "JULY";
+                break;
+            case 8:
+                return "AUGUST";
+                break;
+            case 9:
+                return "SEPTEMBER";
+                break;
+            case 10:
+                return "OCTOBER";
+                break;
+            case 11:
+                return "NOVEMBER";
+                break;
+            case 12:
+                return "DECEMBER";
+                break;
+        }
+
+
     }
 }

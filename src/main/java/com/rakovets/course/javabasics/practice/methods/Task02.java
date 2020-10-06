@@ -12,9 +12,9 @@ import com.rakovets.course.javabasics.util.StandardInputTask;
 public class Task02 extends StandardInputTask {
     public static void main(String[] args) {
         // Ввод данных осуществляется в Standard Input, для проверки различных вариантов входных параметров
-        int hour = INPUT_SCANNER.nextInt();
+        int hour = INPUT_SCANNER.nextInt ();
 
-        getGreetingByHour(hour);
+       getGreetingByHour(hour);
     }
 
     /**
@@ -27,6 +27,15 @@ public class Task02 extends StandardInputTask {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         // Для проверки решения необходимо запустить @Test для данного class (в директории test)
-        return null;
+        if (hour <= 5) {
+            return "Good night";
+        } else if (hour <= 11) {
+            return "Good morning";
+        } else if (hour <= 17) {
+            return "Good day";
+        } else if (hour <= 23) {
+            return "Good evening";
+        } else
+            return null;
     }
-}
+    }
