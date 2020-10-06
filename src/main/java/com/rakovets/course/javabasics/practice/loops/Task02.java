@@ -25,5 +25,14 @@ public class Task02 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
         // Для проверки решения необходимо запустить @Test для данного class (в директории test)
+        int j = 0;
+      for (int i = 1; i <= rows; i++)
+        if (headerRowEnable == true) {
+            System.out.println("");
+            int j = i -1;
+            System.out.println(j);
+        } else {
+            System.out.println(i);};
+
     }
 }
