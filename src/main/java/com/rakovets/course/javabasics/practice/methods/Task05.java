@@ -26,8 +26,6 @@ public class Task05 extends StandardInputTask {
      */
     static String getNameMonth(byte monthNumber) {
         switch (monthNumber) {
-            case 0:
-                return null;
             case 1:
                 return "JANUARY";
                 break;
@@ -64,8 +62,8 @@ public class Task05 extends StandardInputTask {
             case 12:
                 return "DECEMBER";
                 break;
+            default:
+                return null;
         }
-
-
     }
 }
