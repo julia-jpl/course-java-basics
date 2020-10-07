@@ -29,11 +29,11 @@ public class Task02 extends StandardInputTask {
         // Для проверки решения необходимо запустить @Test для данного class (в директории test)
         if (hour <= 5 && hour >= 0) {
             return "Good night";
-        } else if (hour <= 11) {
+        } else if (hour <= 11 && hour > 5) {
             return "Good morning";
-        } else if (hour <= 17) {
+        } else if (hour <= 17 && hour > 11) {
             return "Good day";
-        } else if (hour <= 23) {
+        } else if (hour <= 23 && hour > 17) {
             return "Good evening";
         } else
             return null;

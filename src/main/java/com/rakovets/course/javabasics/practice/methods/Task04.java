@@ -27,25 +27,18 @@ public class Task04 extends StandardInputTask {
         switch (weekdayNumber) {
             case 1:
                 return "MONDAY";
-                break;
             case 2:
                 return "TUESDAY";
-                break;
             case 3:
                 return "WEDNESDAY";
-                break;
             case 4:
                 return "THURSDAY";
-                break;
             case 5:
                 return "FRIDAY";
-                break;
             case 6:
                 return "SATURDAY";
-                break;
             case 7:
                 return "SUNDAY";
-                break;
             default:
                 return null;
         }

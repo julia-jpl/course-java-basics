@@ -33,13 +33,13 @@ public class Task03 extends StandardInputTask {
         // Код, решающий задачу пишем ниже, при этом используя параметры метода
         // Для проверки решения необходимо запустить @Test для данного class (в директории test)
         double currentPercentage = (double) currentHealthPoint / maxHealthPoint * 100;
-        if (currentPercentage < 25) {
+        if (currentPercentage < 25 && currentPercentage > 0) {
             return "RED";}
-        else if (currentPercentage < 50) {
+        else if (currentPercentage < 50 && currentPercentage >= 25) {
             return "ORANGE";
-        } else if (currentPercentage < 75) {
+        } else if (currentPercentage < 75 && currentPercentage >= 50) {
             return "YELLOW";
-        } else if (currentPercentage <= 100) {
+        } else if (currentPercentage <= 100 && currentPercentage >=75) {
             return "GREEN";
         } else
             return null;
