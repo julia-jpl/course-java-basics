@@ -97,7 +97,7 @@ public class Task12 {
     static String getZodiacSing(int month, int day) {
         if (month == 1) {
             if (day < 21) {
-                return "Sea-Goat";
+                return "Goat";
             } else {
                 return "Water-Bearer";
             }
@@ -120,7 +120,7 @@ public class Task12 {
                 return "Bull";
             }
         } else if (month == 5) {
-            if (day < 22) {
+            if (day < 21) {
                 return "Bull";
             } else {
                 return "Twins";
@@ -138,19 +138,19 @@ public class Task12 {
                 return "Lion";
             }
         } else if (month == 8) {
-            if (day < 22) {
+            if (day < 23) {
                 return "Lion";
             } else {
                 return "Maiden";
             }
         } else if (month == 9) {
-            if (day < 24) {
+            if (day < 22) {
                 return "Maiden";
             } else {
                 return "Scales";
             }
         } else if (month == 10) {
-            if (day < 24) {
+            if (day < 23) {
                 return "Scales";
             } else {
                 return "Scorpion";
@@ -162,10 +162,10 @@ public class Task12 {
                 return "Archer";
             }
         } else if (month == 12) {
-            if (day < 23) {
+            if (day < 22) {
                 return "Archer";
             } else {
-                return "Sea-Goat";
+                return "Goat";
             }
         }
         return null;
