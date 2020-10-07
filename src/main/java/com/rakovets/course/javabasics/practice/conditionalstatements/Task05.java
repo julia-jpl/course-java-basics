@@ -28,7 +28,7 @@ public class Task05 {
                 System.out.println("JANUARY");
                 break;
             case 2:
-                System.out.println("FEBRARY");
+                System.out.println("FEBRUARY");
                 break;
             case 3:
                 System.out.println("MARCH");

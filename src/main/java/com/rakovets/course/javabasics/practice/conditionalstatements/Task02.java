@@ -25,11 +25,11 @@ public class Task02 {
 
         if (hour >= 0 && hour <= 5) {
             System.out.println("Good night");
-        } else if (hour <= 11) {
+        } else if (hour <= 11 && hour > 5) {
             System.out.println("Good morning");
-        } else if (hour <= 17) {
+        } else if (hour <= 17 && hour > 11) {
             System.out.println("Good day");
-        } else if (hour <= 23) {
+        } else if (hour <= 23 && hour > 17) {
             System.out.println("Good evening");
         }
 
