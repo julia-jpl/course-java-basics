@@ -29,7 +29,7 @@ public class Task05 {
         double totalHealthPoints = healthPoints;
         int hours = 0;
          do {
-            totalHealthPoints = (double) (totalHealthPoints + (totalHealthPoints * regenerationPercentFromCurrentHealth / 100)) - averageDamagePerHour;
+            totalHealthPoints = (double) ((totalHealthPoints + (totalHealthPoints * regenerationPercentFromCurrentHealth / 100)) - averageDamagePerHour);
             hours += 1;
         } while (totalHealthPoints > 0);
         if (hours > 24) {

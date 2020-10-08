@@ -29,8 +29,12 @@ public class Task03 {
         for (int i = 1; i <= depositTerm; i++) {
             depositAmount = depositAmount + (depositAmount * annualDepositPercent / 100);
         }
+        depositAmount = depositAmount *100;
+        long result = Math.round(depositAmount);
+        double result2 = (double) result / 100;
+        System.out.print(result2);
 
-        System.out.printf("%.2f",depositAmount);
+
 
     }
 }

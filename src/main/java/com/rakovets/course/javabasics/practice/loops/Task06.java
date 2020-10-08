@@ -24,21 +24,21 @@ public class Task06 {
         // Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
         // Для проверки решения необходимо запустить @Test для данного class (в директории test)
         int numberDigitals = 0;
-        long intermidiateAmount = amount;
+        long intermidiateAmount = Math.abs(amount);
         long result = 0;
         do {
             intermidiateAmount = intermidiateAmount / 10;
             numberDigitals += 1;
-        } while (intermidiateAmount > 0 || intermidiateAmount <0);
+        } while (intermidiateAmount > 0);
         for (int j = numberDigitals; j >= 1; j--) {
             int powValue = j - 1;
             result = amount / pow(10, powValue);
-            if (j % 3 != 0) {
+            if ((j == numberDigitals) || (j % 3 != 0)) {
                 System.out.print(result);
             } else {
                 System.out.print(" " + result);
             }
-             amount = amount - (result * pow(10, powValue));
+             amount = Math.abs(amount) - (Math.abs(result) * pow(10, powValue));
             }
         }
 
