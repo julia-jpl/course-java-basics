@@ -31,7 +31,8 @@ public class Task05 {
          do {
             totalHealthPoints = (double) ((totalHealthPoints + (totalHealthPoints * regenerationPercentFromCurrentHealth / 100)) - averageDamagePerHour);
             hours += 1;
-        } while (totalHealthPoints > 0);
+        } while ((0 < totalHealthPoints) && (hours <= 24));
+
         if (hours > 24) {
             System.out.println("-1");
         } else {
