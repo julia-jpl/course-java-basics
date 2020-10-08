@@ -28,10 +28,10 @@ public class Task05 {
         // Для проверки решения необходимо запустить @Test для данного class (в директории test)
         double totalHealthPoints = healthPoints;
         int hours = 0;
-        while (totalHealthPoints >= 0) {
+         do {
             totalHealthPoints = (double) (totalHealthPoints + (totalHealthPoints * regenerationPercentFromCurrentHealth / 100)) - averageDamagePerHour;
             hours += 1;
-        }
+        } while (totalHealthPoints > 0);
         if (hours > 24) {
             System.out.println("-1");
         } else {
