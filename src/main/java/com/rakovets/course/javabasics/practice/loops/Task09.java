@@ -30,5 +30,21 @@ public class Task09 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
         // Для проверки решения необходимо запустить @Test для данного class (в директории test)
+        int numberItems = startNumberItems;
+        double sell = 0;
+        double finalPriseWithSell = 0;
+        double priseOfItem = startPriceAllItems / startNumberItems;
+        int i = 1;
+        for (i = 1; i <= sizeTotalPrice; i++) {
+            if (i == 1) {
+                System.out.println(startNumberItems + " - " + startPriceAllItems + " with sell " + sell +"%");
+            } else {
+                numberItems = numberItems + differentialNumberItems;
+                sell = differentialSell  * (i - 1);
+                finalPriseWithSell = numberItems * priseOfItem - (numberItems * priseOfItem * sell / 100);
+                System.out.println(numberItems + " - " + finalPriseWithSell + " with sell " + sell + "%");
+            }
+        }
+
     }
 }
