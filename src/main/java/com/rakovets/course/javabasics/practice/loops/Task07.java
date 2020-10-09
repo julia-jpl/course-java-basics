@@ -1,5 +1,6 @@
 package com.rakovets.course.javabasics.practice.loops;
 
+import java.util.Locale;
 import java.util.Scanner;
 
 /**
@@ -26,16 +27,20 @@ public class Task07 {
         //TODO
         // Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
         // Для проверки решения необходимо запустить @Test для данного class (в директории test)
-        double totalDistance = 0;
-        double distance = (double) startDistance;
-        while (distance <= finishDistance) {
-            distance = distance + (distance * dailyProgress / 100);
-            getAroundDistance (distance);
-            totalDistance += distance;
+        double totalDistance = startDistance;
+        double distance = startDistance;
+        int days = 1;
+        if (distance != 0) {
+            do {
+                distance = distance + (distance * dailyProgress / 100);
+                totalDistance = totalDistance + distance;
+            }  while (distance < finishDistance);
+            totalDistance = totalDistance - distance;
+        } else {
+                totalDistance = 0;
         }
-        System.out.println(totalDistance);
+            System.out.printf(Locale.ROOT,"%.2f", totalDistance);
     }
-    static double getAroundDistance(double distance) {
+
 
     }
-}
