@@ -26,17 +26,24 @@ public class Task02 {
         // Код, решающий задачу пишем ниже, при этом используяся переменные объявленные выше (их можно изменять)
         // Для проверки решения необходимо запустить @Test для данного class (в директории test)
 
-        if (headerRowEnable) {
+        if (headerRowEnable == true) {
             for (int i = 1; i <= rows; i++)
                 if (i == 1) {
                     System.out.print(" \n");
+                } else if (i != rows) {
+                    System.out.println(i - 1);
                 } else {
-                    System.out.print(i - 1 +"\n");
+                    System.out.print(i - 1);
                 }
         } else {
-            for (int i = 1; i <= rows; i++)
-            System.out.print(i + "\n");
-        }
+            for (int i = 1; i <= rows; i++) {
+                if (i != rows) {
+                    System.out.println(i);
+                } else {
+                    System.out.print(i);
+                }
+            }
 
+        }
     }
 }

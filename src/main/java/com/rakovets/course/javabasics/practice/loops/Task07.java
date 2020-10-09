@@ -30,8 +30,12 @@ public class Task07 {
         double distance = (double) startDistance;
         while (distance <= finishDistance) {
             distance = distance + (distance * dailyProgress / 100);
+            getAroundDistance (distance);
             totalDistance += distance;
         }
         System.out.println(totalDistance);
+    }
+    static double getAroundDistance(double distance) {
+
     }
 }
