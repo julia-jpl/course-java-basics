@@ -10,11 +10,21 @@ public class Sphynx extends Cat {
 
     @Override
     public String mew() {
-       return super.mew() + "mew-w-mew";
+       return super.mew() + "-mew-w-mew";
     }
 
     @Override
     public String purr() {
-        return super.purr() + "purr-r-purr";
+        return super.purr() + "-purr-r-purr";
+    }
+
+    @Override
+    public int mew(Person person) {
+        return super.mew(person) - 10;
+    }
+
+    @Override
+    public int purr(Person person) {
+        return super.purr(person) + 10;
     }
 }

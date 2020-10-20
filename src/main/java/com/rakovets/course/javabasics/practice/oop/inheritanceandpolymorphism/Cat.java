@@ -10,6 +10,13 @@ public class Cat {
     public String mew() {
         return "mew";
     }
+    public int mew(Person person) {
+       return person.takeHappiness2(20);
+    }
+
+    public int purr(Person person) {
+        return person.takeHappiness1(20);
+    }
 
     public String purr() {
         return "purr";
