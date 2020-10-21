@@ -94,11 +94,12 @@ public class StringUtilTest {
         Assertions.assertEquals(false, stringUtil.isPalindromeString("java, c+++, java."));
         Assertions.assertEquals(false, stringUtil.isPalindromeString(""));
         Assertions.assertEquals(false, stringUtil.isPalindromeString("java123!321avaj "));
-        Assertions.assertEquals(true, stringUtil.isPalindromeString("Java,\n,avaj"));
-        Assertions.assertEquals(true, stringUtil.isPalindromeString("Java avaj"));
+        Assertions.assertEquals(false, stringUtil.isPalindromeString("Java,  ,avaj"));
+        Assertions.assertEquals(false, stringUtil.isPalindromeString("Java avaj"));
         Assertions.assertEquals(true, stringUtil.isPalindromeString("JavaavaJ"));
-        Assertions.assertEquals(false, stringUtil.isPalindromeString(null));
     }
+
+
 
     @Test
     void getNumberOfWords() {

@@ -86,13 +86,13 @@ public class StringUtil {
    }
 
    public boolean isPalindromeString(String string) {
-       if ((string != "") || (string != null)) {
+       if ((string == "") || (string == null)) {
+           return false;
+       } else {
            StringBuffer stringBuffer = new StringBuffer(string);
            stringBuffer.reverse();
            String string1 = stringBuffer.toString();
-           return string1.equalsIgnoreCase(string);
-       } else {
-           return false;
+           return string1.equals(string);
        }
    }
 
@@ -109,7 +109,7 @@ public class StringUtil {
                subStringsArray[i] = string1.substring(start, end);
                start += n;
                end += n;
-               System.out.println("subStringsArray[" + i + "] = " + subStringsArray[i]);
+               System.out.println(subStringsArray[i]);
            }
        } else {
            System.out.println("Impossible to get substrings");
