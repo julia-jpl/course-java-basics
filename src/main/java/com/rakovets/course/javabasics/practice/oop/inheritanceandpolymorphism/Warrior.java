@@ -24,4 +24,13 @@ public class Warrior extends Hero {
     public double takeDamageHero(double damage) {
         return super.takeDamageHero(damage * 1.5);
     }
+
+    public boolean beAbleToFly() {
+        if (health > 500) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
+

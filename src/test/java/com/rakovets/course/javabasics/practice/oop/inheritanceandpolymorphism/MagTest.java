@@ -11,7 +11,7 @@ public class MagTest {
 
     @BeforeEach
     void init() {
-        mag = new Mag("Zorg", 1000);
+        mag = new Mag("Zorg", 1000, true);
     }
 
     @Test
@@ -27,5 +27,10 @@ public class MagTest {
     @Test
     void isDeadTest() {
         Assertions.assertEquals(false, mag.isDead());
+    }
+
+    @Test
+    void becomeInvisibleTest() {
+        Assertions.assertEquals(true, mag.becomeInvisible());
     }
 }

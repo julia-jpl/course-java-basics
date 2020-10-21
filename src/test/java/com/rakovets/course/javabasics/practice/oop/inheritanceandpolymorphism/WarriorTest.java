@@ -26,4 +26,9 @@ public class WarriorTest {
     void isDeadTest() {
         Assertions.assertEquals(false, warrior.isDead());
     }
+
+    @Test
+    void beAbleToFlyTest() {
+        Assertions.assertEquals(true, warrior.beAbleToFly());
+    }
 }

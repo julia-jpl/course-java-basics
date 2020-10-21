@@ -1,6 +1,7 @@
 package com.rakovets.course.javabasics.practice.oop.inheritanceandpolymorphism;
 
 public class Mag extends Hero {
+    protected boolean magicPotion;
 
     public Mag (String name) {
         super(name);
@@ -8,6 +9,11 @@ public class Mag extends Hero {
 
     public Mag (String name, double health) {
         super(name, health);
+    }
+
+    public Mag (String name, double health, boolean magicPotion) {
+        super(name, health);
+        this.magicPotion = magicPotion;
     }
 
     @Override
@@ -23,5 +29,13 @@ public class Mag extends Hero {
     @Override
     public double takeDamageHero(double damage) {
         return super.takeDamageHero(damage);
+    }
+
+    public boolean becomeInvisible() {
+        if (magicPotion) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

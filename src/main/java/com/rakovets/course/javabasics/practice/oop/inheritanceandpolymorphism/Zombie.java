@@ -6,7 +6,7 @@ public class Zombie extends Enemy {
         super(health);
     }
 
-    public double getRevived() {
+    public double becomeRevived() {
         if (health <= 0) {
             return health += 500;
         } else {

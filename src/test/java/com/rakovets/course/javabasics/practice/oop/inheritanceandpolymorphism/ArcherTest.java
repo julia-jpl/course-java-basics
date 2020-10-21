@@ -9,7 +9,7 @@ public class ArcherTest {
 
     @BeforeAll
     static void init() {
-        archer = new Archer("Archer", 1000);
+        archer = new Archer("Archer", 1000, true);
     }
 
     @Test
@@ -26,5 +26,11 @@ public class ArcherTest {
     @Test
     void isDeadTest() {
         Assertions.assertEquals(false, archer.isDead());
+    }
+
+    @Test
+    void takeMortalDamage() {
+        Golem golem = new Golem(1000);
+        Assertions.assertEquals(0, archer.takeMortalDamage(golem));
     }
 }
