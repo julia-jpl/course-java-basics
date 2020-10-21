@@ -11,11 +11,11 @@ public class Cat {
         return "mew";
     }
     public int mew(Person person) {
-       return person.takeHappiness2(20);
+       return person.takeHappiness(-20);
     }
 
     public int purr(Person person) {
-        return person.takeHappiness1(20);
+        return person.takeHappiness(20);
     }
 
     public String purr() {

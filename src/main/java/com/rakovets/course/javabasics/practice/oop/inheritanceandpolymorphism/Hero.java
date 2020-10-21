@@ -13,7 +13,7 @@ public abstract class Hero {
         this.health = health;
     }
 
-    public abstract void attackEnemy();
+    public abstract String attackEnemy();
 
     public double attackEnemy(Enemy enemy) {
         return enemy.takeDamage(20);

@@ -7,12 +7,8 @@ public class Person {
         happiness = percentage;
     }
 
-    public int takeHappiness1(int happiness) {
+    public int takeHappiness(int happiness) {
         return this.happiness + happiness;
-    }
-
-    public int takeHappiness2(int happiness) {
-        return this.happiness - happiness;
     }
 
     public int getHappiness() {
