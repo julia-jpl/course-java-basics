@@ -1,7 +1,7 @@
 package com.rakovets.course.javabasics.practice.oop.inheritanceandpolymorphism;
 
 public class Archer extends Hero {
-    protected boolean poisonedArrow;
+    private boolean poisonedArrow;
 
     public Archer(String name) {
         super(name);
@@ -29,11 +29,16 @@ public class Archer extends Hero {
         return super.takeDamageHero(damage * 0.5);
     }
 
-    public double takeMortalDamage(Golem golem) {
+    public double takeMortalDamageToGolem(Golem golem) {
         if (poisonedArrow) {
+            poisonedArrow = false;
             return golem.takeDamage(1000);
         } else {
             return golem.takeDamage(20 * 3);
         }
+    }
+
+    public boolean getPoisonedArrow() {
+        return poisonedArrow;
     }
 }

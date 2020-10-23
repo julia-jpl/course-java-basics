@@ -1,8 +1,8 @@
 package com.rakovets.course.javabasics.practice.oop.inheritanceandpolymorphism;
 
 public abstract class Hero {
-    protected String name;
-    protected double health;
+    private String name;
+    private double health;
 
     public Hero (String name) {
         this.name = name;

@@ -1,7 +1,7 @@
 package com.rakovets.course.javabasics.practice.oop.inheritanceandpolymorphism;
 
 public class Enemy implements Mortal {
-    protected double health;
+    private double health;
 
     public Enemy (double healthPoint) {
         health = healthPoint;

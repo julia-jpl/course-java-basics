@@ -1,7 +1,7 @@
 package com.rakovets.course.javabasics.practice.oop.inheritanceandpolymorphism;
 
 public class Orc extends Enemy {
-    protected int criticalTrick = 3;
+    private int criticalTrick = 3;
 
     public Orc (double health) {
         super(health);
@@ -13,13 +13,15 @@ public class Orc extends Enemy {
 
     public double takeCriticalTrick(Hero hero) {
         if (criticalTrick > 0) {
+            criticalTrick -= 1;
             return hero.takeDamageHero(500);
         } else {
             return hero.takeDamageHero(10);
         }
     }
 
-    public int takeCriticalTrick() {
-        return criticalTrick - 1;
+
+    public int getCriticalTrick() {
+        return criticalTrick;
     }
 }

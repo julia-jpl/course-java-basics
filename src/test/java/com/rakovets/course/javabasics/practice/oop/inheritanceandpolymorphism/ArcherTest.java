@@ -9,28 +9,39 @@ public class ArcherTest {
 
     @BeforeAll
     static void init() {
-        archer = new Archer("Archer", 1000, true);
+        archer = new Archer("Archer", 1000, false);
     }
 
     @Test
-    void attackEnemy() {
+    void attackEnemyTest() {
         Enemy enemy = new Enemy(1000);
+        Zombie zombie = new Zombie(200);
+        Orc orc = new Orc(400);
+        Golem golem = new Golem(100);
         Assertions.assertEquals(940, archer.attackEnemy(enemy));
+        Assertions.assertEquals(140, archer.attackEnemy(zombie));
+        Assertions.assertEquals(340, archer.attackEnemy(orc));
+        Assertions.assertEquals(40, archer.attackEnemy(golem));
     }
 
     @Test
-    void takeDamageHero() {
+    void takeDamageHeroTest() {
         Assertions.assertEquals(950, archer.takeDamageHero(100));
     }
 
     @Test
     void isDeadTest() {
-        Assertions.assertEquals(false, archer.isDead());
+        Archer archer1 = new Archer("Archer1", 0, true);
+        Assertions.assertFalse(archer.isDead());
+        Assertions.assertTrue(archer1.isDead());
     }
 
     @Test
-    void takeMortalDamage() {
+    void takeMortalDamageToGolemTest() {
         Golem golem = new Golem(1000);
-        Assertions.assertEquals(0, archer.takeMortalDamage(golem));
+        Archer archer1 = new Archer("Archer1", 1000, true);
+        Assertions.assertEquals(940, archer.takeMortalDamageToGolem(golem));
+        Assertions.assertEquals(0, archer1.takeMortalDamageToGolem(golem));
+        Assertions.assertEquals(940, archer1.takeMortalDamageToGolem(golem));
     }
 }

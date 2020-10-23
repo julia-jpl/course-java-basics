@@ -9,7 +9,7 @@ public class OrcTest {
 
     @BeforeAll
     static void init() {
-        orc = new Orc(1000, 2);
+        orc = new Orc(1000, 3);
     }
 
     @Test
@@ -20,5 +20,6 @@ public class OrcTest {
         Assertions.assertEquals(750, orc.takeCriticalTrick(archer));
         Assertions.assertEquals(500, orc.takeCriticalTrick(mag));
         Assertions.assertEquals(250, orc.takeCriticalTrick(warrior));
+        Assertions.assertEquals(985,orc.takeCriticalTrick(warrior));
     }
 }

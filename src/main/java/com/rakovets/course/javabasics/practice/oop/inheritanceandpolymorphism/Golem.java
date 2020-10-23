@@ -1,7 +1,7 @@
 package com.rakovets.course.javabasics.practice.oop.inheritanceandpolymorphism;
 
 public class Golem extends Enemy {
-    protected int stoneSkin = 3;
+    private int stoneSkin;
 
     public Golem (double health) {
         super(health);
@@ -12,10 +12,15 @@ public class Golem extends Enemy {
     }
 
     public double stayUndamaged() {
-        if ((health < 200) && (stoneSkin > 0)) {
-          return health = 500;
+        if ((getHealth() < 200) && (stoneSkin > 0)) {
+            stoneSkin -= 1;
+          return 500;
         } else {
-            return health;
+            return getHealth();
         }
+    }
+
+    public int getStoneSkin() {
+        return stoneSkin;
     }
 }

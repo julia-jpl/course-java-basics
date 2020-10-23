@@ -26,7 +26,7 @@ public class Warrior extends Hero {
     }
 
     public boolean beAbleToFly() {
-        if (health > 500) {
+        if (getHealth() > 500) {
             return true;
         } else {
             return false;

@@ -9,10 +9,16 @@ public class GolemTest {
 
     @BeforeAll
     static void init() {
-        golem = new Golem(180, 3);
+        golem = new Golem(180, 2);
     }
     @Test
     void stayUndamaged(){
+        Golem golem1 = new Golem(300, 1);
+        Golem golem2 = new Golem(100, 0);
         Assertions.assertEquals(500, golem.stayUndamaged());
+        Assertions.assertEquals(500, golem.stayUndamaged());
+        Assertions.assertEquals(180, golem.stayUndamaged());
+        Assertions.assertEquals(300, golem1.stayUndamaged());
+        Assertions.assertEquals(100, golem2.stayUndamaged());
     }
 }

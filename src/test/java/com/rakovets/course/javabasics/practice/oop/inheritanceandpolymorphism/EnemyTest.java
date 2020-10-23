@@ -14,7 +14,9 @@ public class EnemyTest {
 
     @Test
     void isAliveTest() {
-        Assertions.assertEquals(true, enemy.isAlive());
+        Enemy enemy1 = new Enemy(0);
+        Assertions.assertTrue(enemy.isAlive());
+        Assertions.assertFalse(enemy1.isAlive());
     }
 
     @Test
@@ -25,7 +27,11 @@ public class EnemyTest {
     @Test
     void attackHeroTest() {
         Mag mag = new Mag ("Mag", 1000);
+        Archer archer = new Archer("Archer", 500);
+        Warrior warrior = new Warrior("Warrior", 1000);
         Assertions.assertEquals(990, enemy.attackHero(mag));
+        Assertions.assertEquals(495, enemy.attackHero(archer));
+        Assertions.assertEquals(985, enemy.attackHero(warrior));
     }
 
 }
