@@ -13,4 +13,12 @@ public class MathTest {
         Assertions.assertEquals("we", Math.getMax("22", "we", "we"));
 
     }
+
+    @Test
+    void getMinTest() {
+        Assertions.assertEquals(2, Math.getMin(56, 8, 0, 2, 7));
+        Assertions.assertEquals(null, Math.getMin(1, 1, 1, 1, 1));
+        Assertions.assertEquals("12", Math.getMin("12", "12", "23", "34", "12"));
+
+    }
 }
