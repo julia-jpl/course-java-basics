@@ -1,6 +1,14 @@
 package com.rakovets.course.javabasics.practice.generics;
 
 public class Math<T> {
+    T[] numbers;
+
+    public Math () {
+    }
+
+    public Math (T[] nums) {
+        numbers = nums;
+    }
 
     public static <T extends Comparable<T>> T getMax(T type1, T type2, T type3) {
         T maxType = type1;
@@ -84,6 +92,27 @@ public class Math<T> {
             minType = null;
         } return minType;
     }
+
+    public <T extends Number> double getAverage(T[] nums) {
+        double sum = 0;
+        double average = 0;
+        for (T num : nums) {
+            sum += num.doubleValue();
+            average = sum / nums.length;
+        }
+        return average;
+    }
+
+    public <T extends Comparable<T>> T getMaxInArray(T[] nums) {
+        T maxInArray = nums[0];
+        for (int i = 1; i < nums.length; i++) {
+            if (maxInArray.compareTo(nums[i]) < 0) {
+                maxInArray = nums[i];
+            }
+        } return maxInArray;
+    }
+
+
 }
 
 
