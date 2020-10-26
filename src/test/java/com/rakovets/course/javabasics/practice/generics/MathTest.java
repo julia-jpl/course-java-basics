@@ -37,4 +37,32 @@ public class MathTest {
         Math<Integer> array1 = new Math (numbers1);
         Assertions.assertEquals(5, array1.getMaxInArray(numbers1));
     }
+
+    @Test
+    void getSortArrayTest() {
+        Integer[] numbers1 = new Integer[] {5, 3, 6, 2, 3};
+        Math<Integer> array1 = new Math (numbers1);
+        Assertions.assertArrayEquals(new Integer[]{2, 3, 3, 5, 6}, array1.getSortArray(numbers1));
+    }
+
+    @Test
+    void getBinarySearchTest() {
+        Integer[] numbers1 = new Integer[] {1, 2, 3, 4, 6, 10, 33};
+        Math<Integer> array1 = new Math (numbers1);
+        Assertions.assertEquals(6, array1.getBinarySearch(numbers1, 33));
+        Double[] numbers2 = new Double[] {1.0, 3.0, 4.0, 5.0, 7.0};
+        Math<Double> array2 = new Math (numbers2);
+        Assertions.assertEquals(-1, array2.getBinarySearch(numbers2, 6.0));
+        Integer[] numbers3 = new Integer[] {1, 3, 6, 6, 7};
+        Math<Integer> array3 = new Math (numbers3);
+        Assertions.assertEquals(2, array3.getBinarySearch(numbers3, 6));
+        Integer[] numbers4 = new Integer[0];
+        Math<Integer> array4 = new Math (numbers4);
+        Assertions.assertEquals(-1, array4.getBinarySearch(numbers4, 6));
+        Integer[] numbers5 = new Integer[] {1, 3};
+        Math<Integer> array5 = new Math (numbers5);
+        Assertions.assertEquals(1, array5.getBinarySearch(numbers5, 3));
+    }
 }
+
+

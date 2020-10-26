@@ -112,7 +112,61 @@ public class Math<T> {
         } return maxInArray;
     }
 
+    public <T extends Comparable<T>> T getMinInArray(T[] nums) {
+        T minInArray = nums[0];
+        for (int i = 1; i < nums.length; i++) {
+            if (minInArray.compareTo(nums[i]) > 0) {
+                minInArray = nums[i];
+            }
+        } return minInArray;
+    }
 
+    public <T extends Comparable <T>> T[] getSortArray(T[] marks) {
+        for (int i = 0; i < marks.length - 1; i++) {
+            for (int j = 0; j < (marks.length - 1); j++) {
+                if (marks[j].compareTo(marks[j + 1]) > 0) {
+                    T temple = marks[j];
+                    marks[j] = marks[j + 1];
+                    marks[j + 1] = temple;
+                }
+            }
+        } return marks;
+    }
+
+    public <T extends Comparable<T>> int getBinarySearch(T[] marks, T mark) {
+        int left = 0;
+        int right = marks.length - 1;
+        int mid = 0;
+        int index = 0;
+        for (int i = 0; i < marks.length - 1; i++) {
+            for (int j = 0; j < (marks.length - 1); j++) {
+                if ((marks[j].compareTo(marks[j + 1])) > 0) {
+                    T temple = marks[j];
+                    marks[j] = marks[j + 1];
+                    marks[j + 1] = temple;
+                }
+            }
+        }
+        if (marks.length == 0) {
+            index = -1;
+        } else {
+            while (left <= right) {
+                mid = left + (right - left) / 2;
+                if (marks[mid].compareTo(mark) == 0) {
+                    index = mid;
+                    break;
+                } else if (marks[mid].compareTo(mark) > 0) {
+                    right = mid - 1;
+                } else {
+                    left = mid + 1;
+                }
+                if (left > right) {
+                    index = -1;
+                }
+            }
+        }
+        return index;
+    }
 }
 
 
