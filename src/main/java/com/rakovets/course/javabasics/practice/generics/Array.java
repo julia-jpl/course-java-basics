@@ -4,22 +4,15 @@ import java.util.Scanner;
 
 public class Array<T extends Number> {
     private int size;
-    private T object;
+    private T number;
 
-    public void setSize(int size) {
+    public void setSize(int size, T number) {
         this.size = size;
+        this.number = number;
     }
 
     public int getSize() {
         return size;
-    }
 
-    Array<T>[] objects = new Array[size];
-
-
-   public Array<T>[] getArray() {
-       Scanner in = new Scanner(System.in);
-    for (int i = 0; i < size; i++) {
-        objects[i] = new Array<>(in.nextT);
     }
 }
