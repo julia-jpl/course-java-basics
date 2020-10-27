@@ -7,6 +7,7 @@ import java.util.Scanner;
 public class ArrayTest {
 
     @Test
+
     void getInputScannerArrayTest() {
         Numbers number1 = new Numbers();
 
