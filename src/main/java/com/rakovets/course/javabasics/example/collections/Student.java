@@ -2,34 +2,50 @@ package com.rakovets.course.javabasics.example.collections;
 
 public class Student {
     private String name;
-    private double fee;
+    private String surname;
+    private int age;
+    private int averageAnnualMark;
 
-    public Student(String name) {
+    public Student (String name, String surname, int age, int averageAnnualMark) {
         this.name = name;
+        this.surname = surname;
+        this.age = age;
+        this.averageAnnualMark = averageAnnualMark;
     }
 
-    public Student(String name, double fee) {
-        this.name = name;
-        this.fee = fee;
+    @Override
+    public String toString() {
+        return "Student " + name + " " + surname + ", age " + age + ", average mark = " + averageAnnualMark +'.';
     }
 
     public String getName() {
         return name;
     }
 
-    public double getFee() {
-        return fee;
+    public void setName(String name) {
+        this.name = name;
+    }
+    public String getSurname() {
+        return surname;
     }
 
-    public void setFee(double fee) {
-        this.fee = fee;
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 
-    @Override
-    public String toString() {
-        return "Student{" +
-                "name='" + name + '\'' +
-                ", cash=" + fee +
-                '}';
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public int getAverageAnnualMark() {
+        return averageAnnualMark;
+    }
+
+    public void setAverageAnnualMark(int averageAnnualMark) {
+        this.averageAnnualMark = averageAnnualMark;
     }
 }

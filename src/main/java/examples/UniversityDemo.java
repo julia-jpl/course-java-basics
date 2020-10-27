@@ -1,4 +1,4 @@
-package com.rakovets.course.javabasics.example.collections;
+package examples;
 
 import java.util.ArrayList;
 import java.util.Hashtable;

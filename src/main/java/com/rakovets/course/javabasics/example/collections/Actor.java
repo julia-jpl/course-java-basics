@@ -1,15 +1,23 @@
 package com.rakovets.course.javabasics.example.collections;
 
-public class Actor implements Comparable<Actor> {
+public class Actor {
     private String firstname;
     private String lastname;
     private int fee;
     private int age;
 
-
-    public int compareTo(Actor actor) {
-            return this.getFee() - actor.getFee();
+    public Actor (String firstname,String lastname, int fee, int age) {
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.fee = fee;
+        this.age = age;
     }
+
+    @Override
+    public String toString() {
+            return "Actor " + firstname + " "+ lastname +
+                    ", fee=" + fee + ", age " + age +'.';
+        }
 
 
     public int getAge() {

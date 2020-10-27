@@ -1,5 +1,7 @@
 package com.rakovets.course.javabasics.example.collections;
 
+import examples.Student;
+
 import java.util.ArrayDeque;
 import java.util.Collection;
 import java.util.Iterator;
