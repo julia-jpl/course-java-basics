@@ -39,6 +39,13 @@ public class MathTest {
     }
 
     @Test
+    void getMinInArrayTest() {
+        Integer[] numbers1 = new Integer[] {1, 2, 3, 4, 5};
+        Math<Integer> array1 = new Math (numbers1);
+        Assertions.assertEquals(1, array1.getMinInArray(numbers1));
+    }
+
+    @Test
     void getSortArrayTest() {
         Integer[] numbers1 = new Integer[] {5, 3, 6, 2, 3};
         Math<Integer> array1 = new Math (numbers1);
