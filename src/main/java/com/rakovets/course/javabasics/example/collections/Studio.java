@@ -17,5 +17,20 @@ public class Studio {
                 return actors;
         }
 
+        public LinkedList<Actor> getActorsSortedByFeeAndLastNameComparator(LinkedList<Actor> actors) {
+                actors.sort(new ActorFeeAndLastnameComparator());
+                return actors;
+        }
+
+        public LinkedList<Actor> getActorsSortedByLastNameAndAgeComparator(LinkedList<Actor> actors) {
+                actors.sort(new ActorLastnameAndAgeComparator());
+                return actors;
+        }
+
+        public LinkedList<Actor> getActorsSortedByNameComparator(LinkedList<Actor> actors) {
+                actors.sort(new ActorNameComparator());
+                return actors;
+        }
+
 
 }
