@@ -11,27 +11,25 @@ public class StringCollectionUtilTest {
     @Test
     void resetWordsByLengthTest() {
         String[] strings = new String []{"we", "this", "computer", "mark", "lamp", "you", "winter", "me"};
-        String[] array1 = new String[]{"we", "*", "computer", "*", "*", "you", "winter", "me"};
         ArrayList<String> arrayList = new ArrayList<>();
         for (int i = 0; i < strings.length; i++) {
             arrayList.add(strings[i]);
         }
         StringCollectionUtil stringCollectionUtil = new StringCollectionUtil();
         ArrayList<String> result = stringCollectionUtil.resetWordsByLength(arrayList, 4);
-        Assertions.assertArrayEquals(array1, result.toArray());
+        Assertions.assertEquals("[we, *, computer, *, *, you, winter, me]", result.toString());
 
     }
 
     @Test
     void removeWordsByLengthTest() {
-        String[] strings = new String []{"we", "this", "computer", "mark", "lamp", "you", "winter", "me"};
-        String[] array1 = new String[]{"we", "computer", "you", "winter", "me"};
+        String[] strings = new String []{"we", "this", "computer", "mark", "you", "hand", "winter", "me"};
         ArrayList<String> arrayList = new ArrayList<>();
         for (String string : strings) {
             arrayList.add(string);
         }
         StringCollectionUtil stringCollectionUtil = new StringCollectionUtil();
         ArrayList<String> result = stringCollectionUtil.removeWordsByLength(arrayList, 4);
-        Assertions.assertArrayEquals(array1, result.toArray());
+        Assertions.assertEquals("[we, computer, you, winter, me]", result.toString());
     }
 }
