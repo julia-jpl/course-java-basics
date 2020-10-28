@@ -1,4 +1,4 @@
-package com.rakovets.course.javabasics.example.collections;
+package examples;
 
 import examples.Student;
 
