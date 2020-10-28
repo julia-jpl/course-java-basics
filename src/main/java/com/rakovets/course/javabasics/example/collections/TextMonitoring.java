@@ -14,8 +14,10 @@ public class TextMonitoring {
            } else {
                mapWords.put(string, 1);
            }
-       } return mapWords;
+       } mapWords.remove("");
+       return mapWords;
    }
+
    public int getCountUniqueWords(HashMap<String, Integer> map) {
        int result = 0;
        for (Map.Entry<String, Integer> item : map.entrySet()) {
