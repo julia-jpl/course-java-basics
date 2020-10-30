@@ -20,14 +20,14 @@ public abstract class Car {
 
     @Override
     public boolean equals(Object object) {
-        return (this.getBrand().equals(brand) &&
-                this.getModel().equals(model) &&
-                this.getRegistrationNumber().equals(registrationNumber));
+        Car other = (Car) object;
+        return (getBrand().equals(other.getBrand()) &&
+                getModel().equals(other.getModel()) );
     }
 
     @Override
     public int hashCode() {
-        return (this.getRegistrationNumber().compareTo(this.getBrand()) + this.getModel().compareTo(this.getColor()));
+        return (model.compareTo(brand));
     }
 
     @Override
