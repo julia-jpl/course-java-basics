@@ -1,7 +1,7 @@
 package com.rakovets.course.javabasics.practice.jcf.list;
 
-import com.rakovets.course.javabasics.example.collections.SchoolClass;
-import com.rakovets.course.javabasics.example.collections.Student;
+import com.rakovets.course.javabasics.practice.SchoolClass;
+import com.rakovets.course.javabasics.practice.Student;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
