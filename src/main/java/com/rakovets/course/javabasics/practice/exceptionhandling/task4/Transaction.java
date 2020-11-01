@@ -18,7 +18,7 @@ public class Transaction {
         }
         to.setAmount(to.getAmount() + sum);
         from.setAmount(from.getAmount() - sum);
-        System.out.println("Transaction is completed successfully");
+        System.out.println("Transaction is completed successfully. Total amount is " + to.getAmount());
     }
 
     public Account getFrom() {
