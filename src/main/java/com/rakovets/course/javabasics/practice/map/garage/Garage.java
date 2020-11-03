@@ -61,12 +61,12 @@ public class Garage {
         }
     }
 
-    public String getByRegistrationNumber(String registrationNumber) {
-        String result = "";
+    public Car getByRegistrationNumber(String registrationNumber) {
+        Car result = null;
         for (List<Car> item : map.values()) {
             for (Car car : item) {
                 if (registrationNumber.equals(car.getRegistrationNumber())) {
-                    result = car.toString();
+                    result = car;
                 }
             }
         }
