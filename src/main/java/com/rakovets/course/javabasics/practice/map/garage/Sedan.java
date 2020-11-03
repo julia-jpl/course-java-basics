@@ -1,4 +1,6 @@
-package com.rakovets.course.javabasics.practice;
+package com.rakovets.course.javabasics.practice.map.garage;
+
+import com.rakovets.course.javabasics.practice.map.garage.Car;
 
 public class Sedan extends Car {
 

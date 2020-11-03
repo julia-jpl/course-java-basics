@@ -1,6 +1,6 @@
 package com.rakovets.course.javabasics.practice.jcf.map;
 
-import com.rakovets.course.javabasics.practice.*;
+import com.rakovets.course.javabasics.practice.map.garage.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

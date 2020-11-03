@@ -1,4 +1,6 @@
-package com.rakovets.course.javabasics.practice;
+package com.rakovets.course.javabasics.practice.list;
+
+import com.rakovets.course.javabasics.practice.list.Student;
 
 import java.util.Comparator;
 

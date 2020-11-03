@@ -1,9 +1,4 @@
-package com.rakovets.course.javabasics.practice;
-
-import com.rakovets.course.javabasics.practice.Student;
-import com.rakovets.course.javabasics.practice.StudentAgeComparator;
-import com.rakovets.course.javabasics.practice.StudentAverageAnnualMarkComparator;
-import com.rakovets.course.javabasics.practice.StudentNameAndSurnameComparator;
+package com.rakovets.course.javabasics.practice.list;
 
 import java.util.LinkedList;
 

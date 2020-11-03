@@ -1,4 +1,4 @@
-package com.rakovets.course.javabasics.practice;
+package com.rakovets.course.javabasics.practice.list;
 
 public class Student {
     private String name;
