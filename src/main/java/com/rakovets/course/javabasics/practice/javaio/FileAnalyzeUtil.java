@@ -3,8 +3,10 @@ package com.rakovets.course.javabasics.practice.javaio;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 public class FileAnalyzeUtil {
 
@@ -64,5 +66,18 @@ public class FileAnalyzeUtil {
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
+    }
+
+    public void getFrequencyOfWords(String path) {
+        try (BufferedReader bf = new BufferedReader(new FileReader(path))) {
+            Map<String, Integer> wordsFrequency = new HashMap<>();
+            String line;
+            String text = "";
+            while ((line = bf.readLine()) != null) {
+                text += line;
+            }
+            if ((text != null) && (text != "")) {
+
+            }
     }
 }
