@@ -68,7 +68,7 @@ public class FileAnalyzeUtil {
         }
     }
 
-    public void getFrequencyOfWords(String path) {
+    public static void getFrequencyOfWords(String path) {
         try (BufferedReader bf = new BufferedReader(new FileReader(path))) {
             Map<String, Integer> wordsFrequency = new HashMap<>();
             String line;
@@ -77,6 +77,16 @@ public class FileAnalyzeUtil {
                 text += line;
             }
             if ((text != null) && (text != "")) {
+                String text1 = text.trim();
+                for (String word : text1.split("\\W+")) {
+                    if (wordsFrequency.containsKey(word)) {
+                        wordsFrequency.put(word, wordsFrequency.get(word) + 1);
+                    } else {
+                        wordsFrequency.put(word, 1);
+                    }
+                }
+            }
+
 
             }
     }
