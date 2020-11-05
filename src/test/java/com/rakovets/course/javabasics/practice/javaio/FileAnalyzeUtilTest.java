@@ -14,6 +14,7 @@ public class FileAnalyzeUtilTest {
     private List<String> listTask3;
     private List<String> listTask4;
     private Map<Character, Integer> mapTask6;
+    private Map<String, Integer> mapTask7;
 
     @BeforeEach
     void init() {
@@ -37,6 +38,14 @@ public class FileAnalyzeUtilTest {
         mapTask6.put('y', 1);
         mapTask6.put('b', 1);
         mapTask6.put('g', 1);
+        mapTask7 = new HashMap<>();
+        mapTask7.put("test", 2);
+        mapTask7.put("is", 2);
+        mapTask7.put("big", 2);
+        mapTask7.put("day", 2);
+        mapTask7.put("Test", 1);
+        mapTask7.put("task", 1);
+        mapTask7.put("slowly", 1);
         }
 
     @Test
@@ -71,6 +80,21 @@ public class FileAnalyzeUtilTest {
             e.printStackTrace();
         }
     }
-
+    @Test
+    void getFrequencyOfWordsTest() {
+        try {
+            Assertions.assertEquals(mapTask7, fileAnalyzeUtil.getFrequencyOfWords("E:" + File.separator + "home" + File.separator + "portnova" + File.separator + "course-java-basics" + File.separator + "src" + File.separator + "test" + File.separator + "resources" + File.separator + "task07.txt"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    @Test
+    void getSortedNumbersTest() {
+        try {
+            fileAnalyzeUtil.getSortedNumbers("E:" + File.separator + "home" + File.separator + "portnova" + File.separator + "course-java-basics" + File.separator + "src" + File.separator + "test" + File.separator +"resources" + File.separator + "task08.txt");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 }
