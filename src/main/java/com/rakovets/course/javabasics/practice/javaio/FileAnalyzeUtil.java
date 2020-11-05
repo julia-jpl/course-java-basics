@@ -1,29 +1,22 @@
 package com.rakovets.course.javabasics.practice.javaio;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import java.io.*;
+import java.util.*;
 
 public class FileAnalyzeUtil {
 
-    public void getListStringsOfFile(String path) {
-        try (BufferedReader bf = new BufferedReader(new FileReader(path))) {
+    public List<String> getListStringsOfFile(String path) throws IOException {
+        BufferedReader bf = new BufferedReader(new FileReader(path));
             List<String> list = new LinkedList<>();
             String s;
             while ((s = bf.readLine()) != null) {
                 list.add(s);
-            }
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-        }
+            } bf.close();
+            return list;
     }
 
-    public void getListOfWordsStartedWithVowel(String path) {
-        try (BufferedReader bf = new BufferedReader(new FileReader(path))) {
+    public List<String> getListOfWordsStartedWithVowel(String path) throws IOException{
+        BufferedReader bf = new BufferedReader(new FileReader(path));
             List<String> list = new LinkedList<>();
             char[] vowels = new char[]{'A', 'a', 'E', 'e', 'I', 'i', 'O', 'o', 'U', 'u', 'Y', 'y', 'А', 'а', 'Е', 'е', 'Ё', 'ё', 'И', 'и', 'О', 'о', 'У', 'у', 'ы', 'Э', 'э', 'Ю', 'ю', 'Я', 'я'};
             String text = null;
@@ -40,13 +33,11 @@ public class FileAnalyzeUtil {
                         }
                     }
                 }
-            }
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-        }
+            } bf.close();
+            return list;
     }
-    public void getListOfWords(String path) {
-        try (BufferedReader bf = new BufferedReader(new FileReader(path))) {
+    public List<String> getListOfWords(String path) throws IOException {
+        BufferedReader bf = new BufferedReader(new FileReader(path));
             List<String> list = new LinkedList<>();
             String text = null;
             int c;
@@ -56,20 +47,55 @@ public class FileAnalyzeUtil {
             if (text != null) {
                 String text1 = text.trim();
                 String[] words = text1.split("\\W+");
-                for (int i = 0; i < words.length; i++) {
+                for (int i = 0; i < (words.length - 1); i++) {
+                    if ((words[i] != "") && (words[i + 1] != "")) {
                     int size = words[i].length();
                     if (words[i].charAt(size - 1) == words[i +1].charAt(0)) {
                         list.add(words[i]);
                     }
+                    }
+                }
+            } bf.close();
+            return list;
+    }
+    public List<String> getMaxCombination(String path) throws IOException {
+        BufferedReader bf = new BufferedReader(new FileReader(path));
+        List<String> list = new LinkedList<>();
+        String line;
+        while ((line = bf.readLine()) != null) {
+            line = line.trim();
+            String[] numbers = line.split(" +");
+            String combination = numbers[0];
+            for (int i = 0; i < numbers.length; i++) {
+                if (numbers[i].compareTo(numbers[i + 1]) < 0) {
+
+
                 }
             }
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
         }
+        return list;
     }
 
-    public static void getFrequencyOfWords(String path) {
-        try (BufferedReader bf = new BufferedReader(new FileReader(path))) {
+    public Map<Character, Integer> getFrequencyOfLetters(String path) throws IOException {
+        BufferedReader bf = new BufferedReader(new FileReader(path));
+        Map<Character, Integer> lettersFrequency = new HashMap<>();
+        String line;
+        while ((line = bf.readLine()) != null) {
+            line = line.toLowerCase();
+            for (int i = 0; i < line.length(); i++) {
+                if ((line.charAt(i) >= 'a') && (line.charAt(i) <= 'z')) {
+                    if (lettersFrequency.containsKey(line.charAt(i))) {
+                        lettersFrequency.put(line.charAt(i), lettersFrequency.get(line.charAt(i)) + 1);
+                    } else {
+                        lettersFrequency.put(line.charAt(i), 1);
+                    }
+                }
+            }
+        } return lettersFrequency;
+    }
+
+    public Map<String, Integer> getFrequencyOfWords(String path) throws IOException {
+        BufferedReader bf = new BufferedReader(new FileReader(path));
             Map<String, Integer> wordsFrequency = new HashMap<>();
             String line;
             String text = "";
@@ -86,8 +112,25 @@ public class FileAnalyzeUtil {
                     }
                 }
             }
-
-
+            List<Map.Entry<String, Integer>> list = new LinkedList<>(wordsFrequency.entrySet());
+            Collections.sort(list, new Comparator<Map.Entry<String, Integer>>() {
+                @Override
+                public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
+                        return o1.getValue().compareTo(o2.getValue());
+                    }
+            });
+            Map<String, Integer> sortedMap = new LinkedHashMap<>();
+            for (Map.Entry<String, Integer> item : list) {
+                sortedMap.put(item.getKey(), item.getValue());
             }
+            bf.close();
+            return sortedMap;
+    }
+    public void getSortedNumbers(String filePath) throws IOException {
+        DataInputStream dis = new DataInputStream(new FileInputStream(filePath));
+        DataOutputStream dos = new DataOutputStream(new FileOutputStream(filePath, false));
+
+
+
     }
 }
