@@ -5,8 +5,8 @@ import java.util.*;
 
 public class FileAnalyzeUtil {
 
-    public List<String> getListStringsOfFile(String path) throws IOException {
-        BufferedReader bf = new BufferedReader(new FileReader(path));
+    public List<String> getListStringsOfFile(String filePath) throws IOException {
+        BufferedReader bf = new BufferedReader(new FileReader(filePath));
             List<String> list = new LinkedList<>();
             String s;
             while ((s = bf.readLine()) != null) {
@@ -15,8 +15,8 @@ public class FileAnalyzeUtil {
             return list;
     }
 
-    public List<String> getListOfWordsStartedWithVowel(String path) throws IOException{
-        BufferedReader bf = new BufferedReader(new FileReader(path));
+    public List<String> getListOfWordsStartedWithVowel(String filePath) throws IOException{
+        BufferedReader bf = new BufferedReader(new FileReader(filePath));
             List<String> list = new LinkedList<>();
             char[] vowels = new char[]{'A', 'a', 'E', 'e', 'I', 'i', 'O', 'o', 'U', 'u', 'Y', 'y', 'А', 'а', 'Е', 'е', 'Ё', 'ё', 'И', 'и', 'О', 'о', 'У', 'у', 'ы', 'Э', 'э', 'Ю', 'ю', 'Я', 'я'};
             String text = null;
@@ -36,8 +36,8 @@ public class FileAnalyzeUtil {
             } bf.close();
             return list;
     }
-    public List<String> getListOfWords(String path) throws IOException {
-        BufferedReader bf = new BufferedReader(new FileReader(path));
+    public List<String> getListOfWords(String filePath) throws IOException {
+        BufferedReader bf = new BufferedReader(new FileReader(filePath));
             List<String> list = new LinkedList<>();
             String text = null;
             int c;
@@ -58,8 +58,8 @@ public class FileAnalyzeUtil {
             } bf.close();
             return list;
     }
-    public List<String> getMaxCombination(String path) throws IOException {
-        BufferedReader bf = new BufferedReader(new FileReader(path));
+    public List<String> getMaxCombination(String filePath) throws IOException {
+        BufferedReader bf = new BufferedReader(new FileReader(filePath));
         List<String> list = new LinkedList<>();
         String line;
         while ((line = bf.readLine()) != null) {
@@ -76,8 +76,8 @@ public class FileAnalyzeUtil {
         return list;
     }
 
-    public Map<Character, Integer> getFrequencyOfLetters(String path) throws IOException {
-        BufferedReader bf = new BufferedReader(new FileReader(path));
+    public Map<Character, Integer> getFrequencyOfLetters(String filePath) throws IOException {
+        BufferedReader bf = new BufferedReader(new FileReader(filePath));
         Map<Character, Integer> lettersFrequency = new HashMap<>();
         String line;
         while ((line = bf.readLine()) != null) {
@@ -94,8 +94,8 @@ public class FileAnalyzeUtil {
         } return lettersFrequency;
     }
 
-    public Map<String, Integer> getFrequencyOfWords(String path) throws IOException {
-        BufferedReader bf = new BufferedReader(new FileReader(path));
+    public Map<String, Integer> getFrequencyOfWords(String filePath) throws IOException {
+        BufferedReader bf = new BufferedReader(new FileReader(filePath));
             Map<String, Integer> wordsFrequency = new HashMap<>();
             String line;
             String text = "";
@@ -126,9 +126,27 @@ public class FileAnalyzeUtil {
             bf.close();
             return sortedMap;
     }
+
     public void getSortedNumbers(String filePath) throws IOException {
-        DataInputStream dis = new DataInputStream(new FileInputStream(filePath));
-        DataOutputStream dos = new DataOutputStream(new FileOutputStream(filePath, false));
+        BufferedReader bf = new BufferedReader(new FileReader(filePath));
+        StringBuilder text = new StringBuilder();
+        int c;
+        while ((c = bf.read()) != -1) {
+            text.append((char) c);
+        }
+        String text1 = text.toString();
+        if ((text1 != null) && (text1 != "")) {
+            String text2 = text1.trim();
+            String[] words = text2.split(" +");
+
+            Arrays.sort(words);
+            BufferedWriter bw = new BufferedWriter(new FileWriter(filePath));
+            for (String item : words) {
+                bw.write(item + " ");
+                bw.flush();
+            }
+        }
+
 
 
 
