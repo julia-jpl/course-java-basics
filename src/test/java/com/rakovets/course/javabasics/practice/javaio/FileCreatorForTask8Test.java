@@ -12,12 +12,10 @@ public class FileCreatorForTask8Test {
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
-        String[] array = new String[] {"23 56 78 0 7  5 3"};
+        String numbers = "23 56 78 0 7  5 3";
 
         try (FileWriter fr = new FileWriter(file, false)) {
-            for (String item : array) {
-                fr.write(item);
-            }
+                fr.write(numbers);
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }

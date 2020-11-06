@@ -1,0 +1,6 @@
+public class FileAnalyzeUtil {
+
+private int age;
+private String message;
+    public List<String> getListStringsOfFile(String filePath) 
+}

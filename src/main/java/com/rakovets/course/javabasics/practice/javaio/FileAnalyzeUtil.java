@@ -138,17 +138,40 @@ public class FileAnalyzeUtil {
         if ((text1 != null) && (text1 != "")) {
             String text2 = text1.trim();
             String[] words = text2.split(" +");
-
-            Arrays.sort(words);
-            BufferedWriter bw = new BufferedWriter(new FileWriter(filePath));
-            for (String item : words) {
+            int [] wordsInt = new int[words.length];
+            for (int i = 0; i < wordsInt.length; i++) {
+                wordsInt[i] = Integer.parseInt(words[i]);
+            }
+            Arrays.sort(wordsInt);
+            String filePathNew = filePath.replace(".txt", "_.txt");
+            File file = new File(filePathNew);
+            try {
+                boolean create = file.createNewFile();
+            } catch (IOException e) {
+                System.out.println(e.getMessage());
+            }
+            BufferedWriter bw = new BufferedWriter(new FileWriter(filePathNew));
+            for (int item : wordsInt) {
                 bw.write(item + " ");
                 bw.flush();
             }
         }
-
-
-
-
+    }
+    public void getReplacedModifiers(String filePath, String oldModifier, String newModifier) throws IOException {
+        BufferedReader bf = new BufferedReader(new FileReader(filePath));
+        String filePathNew = filePath.replace(".txt", "_.txt");
+        File file = new File(filePathNew);
+        try {
+            boolean create = file.createNewFile();
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+        BufferedWriter bw = new BufferedWriter(new FileWriter(filePathNew));
+        String line;
+        String newLine;
+        while ((line = bf.readLine()) != null) {
+            newLine = line.replace(oldModifier, newModifier);
+            bw.write(newLine + "\n");
+        } bw.flush();
     }
 }
