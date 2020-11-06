@@ -157,6 +157,35 @@ public class FileAnalyzeUtil {
             }
         }
     }
+    public Map<String, Double> getAcademicPerformance(String filePath) throws IOException {
+        Map<String, Double> academicPerformance = new HashMap<>();
+        BufferedReader br = new BufferedReader(new FileReader(filePath));
+        String line;
+        String surname = "";
+        String marks = "";
+        int indexOfFirstComma = -1;
+        double averageMark = 0;
+        int sumOfMarks = 0;
+        while ((line = br.readLine()) != null) {
+            indexOfFirstComma = line.indexOf(',');
+            surname = line.substring(0, indexOfFirstComma);
+            marks = line.substring(indexOfFirstComma + 1);
+            String[] arrayOfMarks = marks.split(",");
+            int[] arrayOfMarksInt = new int[arrayOfMarks.length];
+            for (int i = 0; i < arrayOfMarksInt.length; i++) {
+                arrayOfMarksInt[i] = Integer.parseInt(arrayOfMarks[i]);
+            }
+            for (int item : arrayOfMarksInt) {
+                sumOfMarks += item;
+            }
+            averageMark = (double) sumOfMarks / arrayOfMarksInt.length;
+            averageMark = (double) Math.round(averageMark * 100) / 100;
+            academicPerformance.put(surname, averageMark);
+            averageMark = 0;
+            sumOfMarks = 0;
+        }
+        return academicPerformance;
+    }
     public void getReplacedModifiers(String filePath, String oldModifier, String newModifier) throws IOException {
         BufferedReader bf = new BufferedReader(new FileReader(filePath));
         String filePathNew = filePath.replace(".txt", "_.txt");

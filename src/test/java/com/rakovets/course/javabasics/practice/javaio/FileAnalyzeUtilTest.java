@@ -15,6 +15,7 @@ public class FileAnalyzeUtilTest {
     private List<String> listTask4;
     private Map<Character, Integer> mapTask6;
     private Map<String, Integer> mapTask7;
+    private Map<String, Double> mapTask9;
 
     @BeforeEach
     void init() {
@@ -46,6 +47,10 @@ public class FileAnalyzeUtilTest {
         mapTask7.put("Test", 1);
         mapTask7.put("task", 1);
         mapTask7.put("slowly", 1);
+        mapTask9 = new HashMap<>();
+        mapTask9.put("Black", 5.67);
+        mapTask9.put("Brown", 6.83);
+        mapTask9.put("White", 9.33);
         }
 
     @Test
@@ -97,6 +102,14 @@ public class FileAnalyzeUtilTest {
         }
     }
     @Test
+    void getAcademicPerformanceTest() {
+        try {
+            Assertions.assertEquals(mapTask9, fileAnalyzeUtil.getAcademicPerformance("E:" + File.separator + "home" + File.separator + "portnova" + File.separator + "course-java-basics" + File.separator + "src" + File.separator + "test" + File.separator +"resources" + File.separator + "task09.txt"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    @Test
     void getReplacedModifiersTest() {
         try {
             fileAnalyzeUtil.getReplacedModifiers("E:" + File.separator + "home" + File.separator + "portnova" + File.separator + "course-java-basics" + File.separator + "src" + File.separator + "test" + File.separator +"resources" + File.separator + "task10.txt", "private", "public");
@@ -104,5 +117,4 @@ public class FileAnalyzeUtilTest {
             e.printStackTrace();
         }
     }
-
 }
