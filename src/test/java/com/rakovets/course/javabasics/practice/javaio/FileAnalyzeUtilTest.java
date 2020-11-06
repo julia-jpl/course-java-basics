@@ -95,11 +95,7 @@ public class FileAnalyzeUtilTest {
     }
     @Test
     void getSortedNumbersTest() {
-        try {
             fileAnalyzeUtil.getSortedNumbers("E:" + File.separator + "home" + File.separator + "portnova" + File.separator + "course-java-basics" + File.separator + "src" + File.separator + "test" + File.separator +"resources" + File.separator + "task08.txt");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
     @Test
     void getAcademicPerformanceTest() {
@@ -111,10 +107,6 @@ public class FileAnalyzeUtilTest {
     }
     @Test
     void getReplacedModifiersTest() {
-        try {
             fileAnalyzeUtil.getReplacedModifiers("E:" + File.separator + "home" + File.separator + "portnova" + File.separator + "course-java-basics" + File.separator + "src" + File.separator + "test" + File.separator +"resources" + File.separator + "task10.txt", "private", "public");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 }

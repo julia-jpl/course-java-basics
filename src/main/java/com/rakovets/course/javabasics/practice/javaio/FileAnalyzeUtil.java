@@ -127,34 +127,37 @@ public class FileAnalyzeUtil {
             return sortedMap;
     }
 
-    public void getSortedNumbers(String filePath) throws IOException {
-        BufferedReader bf = new BufferedReader(new FileReader(filePath));
-        StringBuilder text = new StringBuilder();
-        int c;
-        while ((c = bf.read()) != -1) {
-            text.append((char) c);
-        }
-        String text1 = text.toString();
-        if ((text1 != null) && (text1 != "")) {
-            String text2 = text1.trim();
-            String[] words = text2.split(" +");
-            int [] wordsInt = new int[words.length];
-            for (int i = 0; i < wordsInt.length; i++) {
-                wordsInt[i] = Integer.parseInt(words[i]);
+    public void getSortedNumbers(String filePath) {
+        String filePathNew = filePath.replace(".txt", "_.txt");
+        try (BufferedReader bf = new BufferedReader(new FileReader(filePath));
+        BufferedWriter bw = new BufferedWriter(new FileWriter(filePathNew))) {
+            StringBuilder text = new StringBuilder();
+            int c;
+            while ((c = bf.read()) != -1) {
+                text.append((char) c);
             }
-            Arrays.sort(wordsInt);
-            String filePathNew = filePath.replace(".txt", "_.txt");
-            File file = new File(filePathNew);
-            try {
-                boolean create = file.createNewFile();
-            } catch (IOException e) {
-                System.out.println(e.getMessage());
+            String text1 = text.toString();
+            if ((text1 != null) && (text1 != "")) {
+                String text2 = text1.trim();
+                String[] words = text2.split(" +");
+                int[] wordsInt = new int[words.length];
+                for (int i = 0; i < wordsInt.length; i++) {
+                    wordsInt[i] = Integer.parseInt(words[i]);
+                }
+                Arrays.sort(wordsInt);
+                File file = new File(filePathNew);
+                try {
+                    boolean create = file.createNewFile();
+                } catch (IOException e) {
+                    System.out.println(e.getMessage());
+                }
+                for (int item : wordsInt) {
+                    bw.write(item + " ");
+                    bw.flush();
+                }
             }
-            BufferedWriter bw = new BufferedWriter(new FileWriter(filePathNew));
-            for (int item : wordsInt) {
-                bw.write(item + " ");
-                bw.flush();
-            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
     public Map<String, Double> getAcademicPerformance(String filePath) throws IOException {
@@ -186,21 +189,25 @@ public class FileAnalyzeUtil {
         }
         return academicPerformance;
     }
-    public void getReplacedModifiers(String filePath, String oldModifier, String newModifier) throws IOException {
-        BufferedReader bf = new BufferedReader(new FileReader(filePath));
+    public void getReplacedModifiers(String filePath, String oldModifier, String newModifier) {
         String filePathNew = filePath.replace(".txt", "_.txt");
-        File file = new File(filePathNew);
-        try {
-            boolean create = file.createNewFile();
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-        }
-        BufferedWriter bw = new BufferedWriter(new FileWriter(filePathNew));
         String line;
         String newLine;
-        while ((line = bf.readLine()) != null) {
-            newLine = line.replace(oldModifier, newModifier);
-            bw.write(newLine + "\n");
-        } bw.flush();
+        try (BufferedReader bf = new BufferedReader(new FileReader(filePath));
+        BufferedWriter bw = new BufferedWriter(new FileWriter(filePathNew))) {
+            File file = new File(filePathNew);
+            try {
+                boolean create = file.createNewFile();
+            } catch (IOException e) {
+                System.out.println(e.getMessage());
+            }
+            while ((line = bf.readLine()) != null) {
+                newLine = line.replace(oldModifier, newModifier);
+                bw.write(newLine + "\n");
+            }
+            bw.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
