@@ -211,4 +211,54 @@ public class FileAnalyzeUtil {
             e.printStackTrace();
         }
     }
+    public List<String> getMaxCombination(String filePath) {
+        List<String> list = new LinkedList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                line = line.trim();
+                String[] arrayStr = line.split(" +");
+                int[] arrayInt = new int[arrayStr.length];
+                for (int i = 0; i < arrayStr.length; i++) {
+                    arrayInt[i] = Integer.parseInt(arrayStr[i]);
+                }
+                String combination = arrayStr[0];
+                Map<String, Integer> map = new HashMap<>();
+                int count = 1;
+                for (int i = 0; i < arrayInt.length - 1; i++) {
+                    if (arrayInt[i] < arrayInt[i+1]) {
+                        combination = combination.join(arrayStr[i + 1], " ");
+                        count += 1;
+                        if ((i + 1) == (arrayInt.length - 1)) {
+                            map.put(combination, count);
+                        }
+                    } else {
+                        map.put(combination, count);
+                        combination = arrayStr[i + 1];
+                        count = 1;
+                        if ((i + 1) == (arrayInt.length - 1)) {
+                            map.put(combination, count);
+                        }
+                    }
+                    Collection<Integer> values = map.values();
+                    Integer[] arrayOfValues = (Integer[]) values.toArray();
+                    Integer maxValue = arrayOfValues[0];
+                    for (Integer item : arrayOfValues) {
+                        if (maxValue < item) {
+                            maxValue = item;
+                        }
+                    }
+                    String strForList = null;
+                    for (Map.Entry<String, Integer> item : map.entrySet()) {
+                        if (item.getValue() == maxValue) {
+                            strForList = item.getKey();
+                        }
+                    }
+                    list.add(strForList);
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } return list;
+    }
 }
