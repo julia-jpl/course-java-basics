@@ -55,43 +55,23 @@ public class FileAnalyzeUtilTest {
 
     @Test
     void getListStringsOfFileTest() {
-        try {
             Assertions.assertEquals(listTask2,  fileAnalyzeUtil.getListStringsOfFile("E:" + File.separator + "home" + File.separator + "portnova" + File.separator + "course-java-basics" + File.separator + "src" + File.separator + "test" + File.separator +"resources" + File.separator + "task02.txt"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
     @Test
     void getListOfWordsStartedWithVowelTest() {
-        try {
             Assertions.assertEquals(listTask3, fileAnalyzeUtil.getListOfWordsStartedWithVowel("E:" + File.separator + "home" + File.separator + "portnova" + File.separator + "course-java-basics" + File.separator + "src" + File.separator + "test" + File.separator +"resources" + File.separator + "task03.txt"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
     @Test
     void getListOfWordsTest() {
-        try {
             Assertions.assertEquals(listTask4, fileAnalyzeUtil.getListOfWords("E:" + File.separator + "home" + File.separator + "portnova" + File.separator + "course-java-basics" + File.separator + "src" + File.separator + "test" + File.separator +"resources" + File.separator + "task04.txt"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
     @Test
     void getFrequencyOfLettersTest() {
-        try {
             Assertions.assertEquals(mapTask6, fileAnalyzeUtil.getFrequencyOfLetters("E:" + File.separator + "home" + File.separator + "portnova" + File.separator + "course-java-basics" + File.separator + "src" + File.separator + "test" + File.separator + "resources" + File.separator + "task06.txt"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
     @Test
     void getFrequencyOfWordsTest() {
-        try {
             Assertions.assertEquals(mapTask7, fileAnalyzeUtil.getFrequencyOfWords("E:" + File.separator + "home" + File.separator + "portnova" + File.separator + "course-java-basics" + File.separator + "src" + File.separator + "test" + File.separator + "resources" + File.separator + "task07.txt"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
     @Test
     void getSortedNumbersTest() {
@@ -99,11 +79,7 @@ public class FileAnalyzeUtilTest {
     }
     @Test
     void getAcademicPerformanceTest() {
-        try {
             Assertions.assertEquals(mapTask9, fileAnalyzeUtil.getAcademicPerformance("E:" + File.separator + "home" + File.separator + "portnova" + File.separator + "course-java-basics" + File.separator + "src" + File.separator + "test" + File.separator +"resources" + File.separator + "task09.txt"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
     @Test
     void getReplacedModifiersTest() {
