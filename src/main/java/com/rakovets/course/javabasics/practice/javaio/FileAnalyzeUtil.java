@@ -226,8 +226,8 @@ public class FileAnalyzeUtil {
                 Map<String, Integer> map = new HashMap<>();
                 int count = 1;
                 for (int i = 0; i < arrayInt.length - 1; i++) {
-                    if (arrayInt[i] < arrayInt[i+1]) {
-                        combination = combination.join(arrayStr[i + 1], " ");
+                    if (arrayInt[i] < arrayInt[i + 1]) {
+                        combination = combination + " " + arrayStr[i +1];
                         count += 1;
                         if ((i + 1) == (arrayInt.length - 1)) {
                             map.put(combination, count);
@@ -240,23 +240,23 @@ public class FileAnalyzeUtil {
                             map.put(combination, count);
                         }
                     }
-                    Collection<Integer> values = map.values();
-                    Integer[] arrayOfValues = (Integer[]) values.toArray();
-                    Integer maxValue = arrayOfValues[0];
-                    for (Integer item : arrayOfValues) {
-                        if (maxValue < item) {
-                            maxValue = item;
-                        }
-                    }
-                    String strForList = null;
-                    for (Map.Entry<String, Integer> item : map.entrySet()) {
-                        if (item.getValue() == maxValue) {
-                            strForList = item.getKey();
-                        }
-                    }
-                    list.add(strForList);
                 }
-            }
+                    Collection<Integer> values = map.values();
+                    ArrayList<Integer> valuesArray = new ArrayList<>(values);
+                    int maxValue = Collections.max(valuesArray);
+                    String strForList = null;
+                    if (maxValue > 1) {
+                        for (Map.Entry<String, Integer> item : map.entrySet()) {
+                            if (item.getValue() == maxValue) {
+                                strForList = item.getKey();
+                                list.add(strForList);
+                            }
+                        }
+                    } else {
+                        strForList = "There is no combination in ascending order";
+                        list.add(strForList);
+                    }
+                }
         } catch (IOException e) {
             e.printStackTrace();
         } return list;

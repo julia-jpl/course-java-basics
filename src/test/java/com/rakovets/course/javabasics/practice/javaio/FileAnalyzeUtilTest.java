@@ -13,6 +13,7 @@ public class FileAnalyzeUtilTest {
     private static List<String> listTask2;
     private List<String> listTask3;
     private List<String> listTask4;
+    private List<String> listTask5;
     private Map<Character, Integer> mapTask6;
     private Map<String, Integer> mapTask7;
     private Map<String, Double> mapTask9;
@@ -23,9 +24,11 @@ public class FileAnalyzeUtilTest {
         String[] arrayTask2 = new String[] {"23 24 64", "56 87 1 2 3", "34 46 9 7 8 10", "asdd"};
         String[] arrayTask3 = new String[] {"is", "Apple", "is", "are", "interested", "in"};
         String[] arrayTask4 = new String[] {"test", "is", "Apple", "RosE"};
+        String[] arrayTask5 = new String[] {"12 34 56", "34 36 38", "1 4 5", "There is no combination in ascending order"};
         listTask2 = new LinkedList<>(Arrays.asList(arrayTask2));
         listTask3 = new LinkedList<>(Arrays.asList(arrayTask3));
         listTask4 = new LinkedList<>(Arrays.asList(arrayTask4));
+        listTask5 = new LinkedList<>(Arrays.asList(arrayTask5));
         mapTask6 = new HashMap<>();
         mapTask6.put('t', 3);
         mapTask6.put('e', 1);
@@ -84,5 +87,9 @@ public class FileAnalyzeUtilTest {
     @Test
     void getReplacedModifiersTest() {
             fileAnalyzeUtil.getReplacedModifiers("E:" + File.separator + "home" + File.separator + "portnova" + File.separator + "course-java-basics" + File.separator + "src" + File.separator + "test" + File.separator +"resources" + File.separator + "task10.txt", "private", "public");
+    }
+    @Test
+    void getMaxCombinationTest() {
+        Assertions.assertEquals(listTask5, fileAnalyzeUtil.getMaxCombination("E:" + File.separator + "home" + File.separator + "portnova" + File.separator + "course-java-basics" + File.separator + "src" + File.separator + "test" + File.separator +"resources" + File.separator + "task05.txt"));
     }
 }
