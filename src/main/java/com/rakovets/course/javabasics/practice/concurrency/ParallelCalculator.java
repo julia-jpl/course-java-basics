@@ -32,14 +32,20 @@ public class ParallelCalculator {
     }
 
     public static void getCalculationInSeveralThreads(int numberOfThreads, List<Integer[]> list) {
-        int arraysInOneThread = list.size() / numberOfThreads;
+        int arraysInOneThread = 0;
+        if (list.size() % numberOfThreads == 0) {
+            arraysInOneThread = list.size() / numberOfThreads;
+        } else {
+            arraysInOneThread = list.size() / numberOfThreads + 1;
+        }
         int n = 0;
         for (n = 0; n < numberOfThreads; n++) {
             int finalN = n;
+            int finalArraysInOneThread = arraysInOneThread;
             new Thread(new Runnable() {
                 @Override
                 public void run() {
-                    for (int i = (finalN * arraysInOneThread); i < (finalN * arraysInOneThread + arraysInOneThread) && i < list.size(); i++) {
+                    for (int i = (finalN * finalArraysInOneThread); i < (finalN * finalArraysInOneThread + finalArraysInOneThread) && i < list.size(); i++) {
                         System.out.println(list.get(i));
                         int maxElement = list.get(i)[0];
                         for(int j = 0; j < list.get(i).length; j++) {
