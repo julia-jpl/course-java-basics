@@ -1,4 +1,6 @@
-package com.rakovets.course.javabasics.practice.concurrency;
+package com.rakovets.course.javabasics.practice.concurrency.masterworker;
+
+import com.rakovets.course.javabasics.practice.concurrency.masterworker.MasterWorkerRunnableTask5;
 
 public class MasterWorkerTask5Demo {
     public static void main(String[] args) {

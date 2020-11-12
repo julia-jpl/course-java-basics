@@ -1,6 +1,6 @@
-package com.rakovets.course.javabasics.practice.concurrency;
+package com.rakovets.course.javabasics.practice.concurrency.masterworker;
 
-import java.util.InputMismatchException;
+import com.rakovets.course.javabasics.practice.concurrency.masterworker.MasterWorkerRunnableTask3;
 
 public class MasterWorkerTask3Demo {
     public static void main(String[] args) {

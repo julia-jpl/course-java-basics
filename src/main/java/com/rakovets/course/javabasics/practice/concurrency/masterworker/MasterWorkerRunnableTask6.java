@@ -1,8 +1,8 @@
-package com.rakovets.course.javabasics.practice.concurrency;
+package com.rakovets.course.javabasics.practice.concurrency.masterworker;
 
 import java.util.Scanner;
 
-public class MasterWorkerRunnableTask5 implements Runnable {
+public class MasterWorkerRunnableTask6 implements Runnable {
     private boolean isRun = true;
 
     @Override
@@ -44,8 +44,13 @@ public class MasterWorkerRunnableTask5 implements Runnable {
                         count++;
                         break;
                     default:
-                        System.out.println("Enter only 1, 2 or 3.");
-                }
+                            System.out.println("...");
+                            try {
+                                Thread.sleep(1000);
+                            } catch (InterruptedException e) {
+                            e.printStackTrace();
+                            }
+                        }
             }
             if (count == 3) {
                 isRun = false;
