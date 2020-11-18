@@ -9,7 +9,7 @@ public class FileCreatorForFilesWithWords {
         File file1 = new File("E:" + File.separator + "home" + File.separator +"portnova" + File.separator + "course-java-basics" + File.separator + "src" + File.separator + "test" + File.separator + "resources" + File.separator + "dirfortests" + File.separator + "file1forsearch.txt");
         File file2 = new File("E:" + File.separator + "home" + File.separator +"portnova" + File.separator + "course-java-basics" + File.separator + "src" + File.separator + "test" + File.separator + "resources" + File.separator + "dirfortests" + File.separator + "file2forsearch.txt");
         File file3 = new File("E:" + File.separator + "home" + File.separator +"portnova" + File.separator + "course-java-basics" + File.separator + "src" + File.separator + "test" + File.separator + "resources" + File.separator + "dirfortests" + File.separator + "file3forsearch.txt");
-        File forbiddenWords = new File("E:" + File.separator + "home" + File.separator +"portnova" + File.separator + "course-java-basics" + File.separator + "src" + File.separator + "test" + File.separator + "resources" + File.separator + "dirfortests" + File.separator + "forbiddenwords.txt");
+        File forbiddenWords = new File("E:" + File.separator + "home" + File.separator +"portnova" + File.separator + "course-java-basics" + File.separator + "src" + File.separator + "test" + File.separator + "resources" + File.separator + "forbiddenwords.txt");
         try {
             file1.createNewFile();
         } catch (IOException e) {

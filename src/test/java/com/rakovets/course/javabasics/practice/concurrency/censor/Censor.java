@@ -11,5 +11,6 @@ public class Censor {
         SearcherRunnable searcher = new SearcherRunnable(dirForSearch, wordForSearch);
         Thread threadSearcher = new Thread(searcher);
         threadSearcher.start();
+
     }
 }
