@@ -15,33 +15,25 @@ public class SearcherRunnable implements Runnable {
     @Override
     public void run() {
         File dir = new File(dirForSearch);
-        String commonText = "";
-        if (dir.isDirectory()) {
-            for (String item : dir.list()) {
-                try (BufferedReader bufferedReader = new BufferedReader(new FileReader(item))) {
-                    String line;
+            for (File item : dir.listFiles()) {
+                try (BufferedReader bufferedReader = new BufferedReader(new FileReader(item.getAbsolutePath()));
+                     FileWriter fw = new FileWriter("E:" + File.separator + "home" + File.separator + "portnova" + File.separator + "course-java-basics" + File.separator + "src" + File.separator + "test" + File.separator + "resources" + File.separator + "newfile.txt", true)) {
+                    String line = "";
                     String text = "";
                     StringBuffer stringBuffer = new StringBuffer(text);
                     while ((line = bufferedReader.readLine()) != null) {
-                        stringBuffer.append(line);
-                    }
-                    text = stringBuffer.toString().trim();
-                    for (String word : text.split("\\W")) {
-                        if (word.equalsIgnoreCase(wordForSearch)) {
-                            commonText += stringBuffer.toString();
+                        text = line.trim();
+                        for (String word : text.split("\\W")) {
+                            if (word.equals(wordForSearch)) {
+                                fw.write(line + "\n");
+                                fw.flush();
+                            }
                         }
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
-        }
-                try (FileWriter fw = new FileWriter( "E:" + File.separator + "home" + File.separator + "portnova" + File.separator + "course-java-basics" + File.separator + "src" + File.separator + "test" + File.separator + "resources" + File.separator + "newfile.txt")) {
-                    fw.write(commonText);
-                    fw.flush();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
     }
 
     public String getDirForSearch() {

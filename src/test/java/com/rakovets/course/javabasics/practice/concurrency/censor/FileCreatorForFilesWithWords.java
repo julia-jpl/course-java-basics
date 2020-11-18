@@ -15,7 +15,7 @@ public class FileCreatorForFilesWithWords {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        try (FileWriter fw1 = new FileWriter(file1, true)) {
+        try (FileWriter fw1 = new FileWriter(file1, false)) {
             String text1 = "The weather is cold. Sun, fog, rain, snow, sky, moon. One, two, three, four, five, six, seven.";
             fw1.write(text1);
             fw1.flush();
@@ -28,7 +28,7 @@ public class FileCreatorForFilesWithWords {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        try (FileWriter fw2 = new FileWriter(file2, true)) {
+        try (FileWriter fw2 = new FileWriter(file2, false)) {
             String text2 = "One, two, three, four, five, six, seven, eight, nine, ten. We, you, they, I, he, she. Sun, fog, rain, snow.";
             fw2.write(text2);
             fw2.flush();
@@ -40,7 +40,7 @@ public class FileCreatorForFilesWithWords {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        try (FileWriter fw3 =new FileWriter(file3, true)) {
+        try (FileWriter fw3 =new FileWriter(file3, false)) {
             String text3 = "five, six, seven, eight, nine, ten. We, you, they, I, he, she. Sun, fog.";
             fw3.write(text3);
             fw3.flush();
