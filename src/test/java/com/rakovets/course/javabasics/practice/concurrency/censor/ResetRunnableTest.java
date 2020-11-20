@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class ClassTest {
+public class ResetRunnableTest {
     private List<String> forbiddenWords;
 
     @BeforeEach

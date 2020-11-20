@@ -11,29 +11,35 @@ import java.util.List;
 public class ResetRunnable implements Runnable {
     private String filePathForbiddenWords;
     private String filePathNewFile;
-    public ResetRunnable (String filePathForbiddenWords, String filePathNewFile) {
+    private String filePathCensored;
+    public ResetRunnable (String filePathForbiddenWords, String filePathNewFile, String filePathCensored) {
         this.filePathForbiddenWords = filePathForbiddenWords;
         this.filePathNewFile = filePathNewFile;
+        this.filePathCensored = filePathCensored;
     }
 
     @Override
     public void run() {
         List<String> forbiddenWords = ResetRunnable.getForbiddenWords(filePathForbiddenWords);
         try (BufferedReader br = new BufferedReader(new FileReader(filePathNewFile));
-             FileWriter fr = new FileWriter(filePathNewFile, false)) {
+             FileWriter fr = new FileWriter(filePathCensored, false)) {
             String line;
             String text = "";
+            List<String> censoredWords = new ArrayList<>();
             while ((line = br.readLine()) != null) {
                 String[] words = line.split("\\W");
-                for (int i = 0; i < words.length; i++) {
+                censoredWords.addAll(Arrays.asList(words));
+                for (int i = 0; i < censoredWords.size(); i++) {
                     for (int j = 0; j < forbiddenWords.size(); j++) {
-                        if (words[i].compareTo(forbiddenWords.get(j)) != 0) {
-                            fr.write(words[i] + ", ");
-                            fr.flush();
+                        if (censoredWords.get(i).equals(forbiddenWords.get(j)) ||
+                                censoredWords.get(i).equals(" ") || censoredWords.get(i).equals(",")) {
+                            censoredWords.remove(censoredWords.get(i));
                         }
                     }
                 }
             }
+            fr.write(censoredWords.toString());
+            fr.flush();
         } catch (IOException e) {
             e.printStackTrace();
         }

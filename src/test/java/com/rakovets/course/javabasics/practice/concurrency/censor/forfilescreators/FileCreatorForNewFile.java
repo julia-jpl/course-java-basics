@@ -1,4 +1,4 @@
-package com.rakovets.course.javabasics.practice.concurrency.censor;
+package com.rakovets.course.javabasics.practice.concurrency.censor.forfilescreators;
 
 import java.io.File;
 import java.io.IOException;
