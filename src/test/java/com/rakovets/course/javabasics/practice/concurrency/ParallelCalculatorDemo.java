@@ -1,5 +1,7 @@
 package com.rakovets.course.javabasics.practice.concurrency;
 
+import com.rakovets.course.javabasics.practice.concurrency.parallelcalculator.ParallelCalculator;
+
 import java.util.List;
 
 public class ParallelCalculatorDemo {
@@ -9,7 +11,7 @@ public class ParallelCalculatorDemo {
         long startTime = System.currentTimeMillis();
         ParallelCalculator.getArrayAndMaxArrayElement(list10);
         long spentTime = System.currentTimeMillis() - startTime;
-        System.out.println("Calculation spends " + spentTime + " millis.");
+        System.out.println("Calculation in 1 thread spends " + spentTime + " millis.");
 
         long startTime2Treads = System.currentTimeMillis();
         ParallelCalculator.getCalculationInSeveralThreads(2, list10);

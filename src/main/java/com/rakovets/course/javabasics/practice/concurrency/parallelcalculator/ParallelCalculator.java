@@ -1,13 +1,14 @@
-package com.rakovets.course.javabasics.practice.concurrency;
+package com.rakovets.course.javabasics.practice.concurrency.parallelcalculator;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
 public class ParallelCalculator {
     public static void getArrayAndMaxArrayElement(List<Integer[]> list) {
         for (int i = 0; i < list.size(); i++) {
-            System.out.println(list.get(i));
+            System.out.println("Number of threads is 1: Array " + i + " = " + list.get(i));
             int maxElement = 0;
             for(int j = 0; j < list.get(i).length; j++) {
                 maxElement = list.get(i)[0];
@@ -15,7 +16,7 @@ public class ParallelCalculator {
                     maxElement = list.get(i)[j];
                 }
             }
-            System.out.println(maxElement);
+            System.out.println("Number of threads is 1. Max element of array " + i + " = " + maxElement);
         }
     }
     public static List<Integer[]> getListOfArraysWithRandomDigital(int listSize) {
@@ -38,26 +39,14 @@ public class ParallelCalculator {
         } else {
             arraysInOneThread = list.size() / numberOfThreads + 1;
         }
-        int n = 0;
-        for (n = 0; n < numberOfThreads; n++) {
-            int finalN = n;
-            int finalArraysInOneThread = arraysInOneThread;
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    for (int i = (finalN * finalArraysInOneThread); i < (finalN * finalArraysInOneThread + finalArraysInOneThread) && i < list.size(); i++) {
-                        System.out.println(list.get(i));
-                        int maxElement = list.get(i)[0];
-                        for(int j = 0; j < list.get(i).length; j++) {
-                            if (maxElement < list.get(i)[0]) {
-                                maxElement = list.get(i)[j];
-                            }
-                        }
-                        System.out.println(maxElement);
-                    }
-                }
-            }).start();
-
+        for (int n = 0; n < numberOfThreads; n++) {
+            Thread parallelThread = new Thread(new ParallelThreads(numberOfThreads, list, n));
+            parallelThread.start();
+            try {
+                parallelThread.join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
     }
 }
