@@ -10,6 +10,7 @@ public class MasterThread implements Runnable {
         this.commonResource = commonResource;
     }
 
+
     @Override
     public void run() {
         Scanner scanner = new Scanner(System.in);
@@ -21,12 +22,7 @@ public class MasterThread implements Runnable {
                     isRun = false;
                     System.out.println("The end.");
                 } else {
-                   commonResource.offer()
-                }
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
+                   commonResource.deque.addLast(number);
                 }
             }
             } catch (InputMismatchException e) {

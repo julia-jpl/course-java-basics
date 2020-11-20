@@ -1,7 +1,9 @@
 package com.rakovets.course.javabasics.practice.concurrency.masterworker;
 
-import java.util.Queue;
+import java.util.*;
+import java.util.concurrent.DelayQueue;
 
 public class CommonResource {
-    private Queue<Integer> queue = new Queue<>();
+    Deque<Integer> deque = new ArrayDeque<>();
     }
+
