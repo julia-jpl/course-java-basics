@@ -13,6 +13,11 @@ public class ParallelCalculatorDemo {
         long spentTime = System.currentTimeMillis() - startTime;
         System.out.println("Calculation in 1 thread spends " + spentTime + " millis.");
 
+        long startTime1Treads = System.currentTimeMillis();
+        ParallelCalculator.getCalculationInSeveralThreads(1, list10);
+        long spentTime1Threads = System.currentTimeMillis() - startTime1Treads;
+        System.out.println("Calculation in 1 threads spends " + spentTime1Threads + " millis.");
+
         long startTime2Treads = System.currentTimeMillis();
         ParallelCalculator.getCalculationInSeveralThreads(2, list10);
         long spentTime2Threads = System.currentTimeMillis() - startTime2Treads;

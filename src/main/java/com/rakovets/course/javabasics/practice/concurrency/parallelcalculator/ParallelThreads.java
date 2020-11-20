@@ -22,10 +22,11 @@ public class ParallelThreads implements Runnable {
             arraysInOneThread = list.size() / numberOfThreads + 1;
         }
         for (int i = (n * arraysInOneThread); (i < (n * arraysInOneThread + arraysInOneThread)) && (i < list.size()); i++) {
-            System.out.println("Number of threads is " + numberOfThreads + " " + list.get(i).toString());
-            int maxElement = list.get(i)[0];
+            System.out.println("Number of threads is " + numberOfThreads + ". Array " + i + " length is " + list.get(i).length);
+            int maxElement = 0;
             for(int j = 0; j < list.get(i).length; j++) {
-                if (maxElement < list.get(i)[0]) {
+                maxElement = list.get(i)[0];
+                if (maxElement < list.get(i)[j]) {
                     maxElement = list.get(i)[j];
                 }
             }

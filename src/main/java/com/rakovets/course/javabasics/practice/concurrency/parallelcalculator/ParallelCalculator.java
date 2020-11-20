@@ -8,7 +8,7 @@ import java.util.Random;
 public class ParallelCalculator {
     public static void getArrayAndMaxArrayElement(List<Integer[]> list) {
         for (int i = 0; i < list.size(); i++) {
-            System.out.println("Number of threads is 1: Array " + i + " = " + list.get(i));
+            System.out.println("Number of threads is 1: Array " + i + " length = " + list.get(i).length);
             int maxElement = 0;
             for(int j = 0; j < list.get(i).length; j++) {
                 maxElement = list.get(i)[0];
