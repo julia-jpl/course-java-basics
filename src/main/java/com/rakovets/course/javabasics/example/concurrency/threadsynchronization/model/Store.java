@@ -15,7 +15,7 @@ public class Store {
             }
         }
         product--;
-        StandardOutputUtil.printlnWithTimeAndThread("Consumer got 1 product from the Store.", AnsiColorCode.FG_RED_BOLD);
+        StandardOutputUtil.printlnWithTimeAndThread("ConsumerThread got 1 product from the Store.", AnsiColorCode.FG_RED_BOLD);
         StandardOutputUtil.printlnWithTimeAndThread("Total products in the Store: " + product, AnsiColorCode.FG_BLUE_BOLD);
         notify();
     }
@@ -29,7 +29,7 @@ public class Store {
             }
         }
         product++;
-        StandardOutputUtil.printlnWithTimeAndThread("Producer added 1 product to the Store.", AnsiColorCode.FG_GREEN_BOLD);
+        StandardOutputUtil.printlnWithTimeAndThread("ProducerThread added 1 product to the Store.", AnsiColorCode.FG_GREEN_BOLD);
         StandardOutputUtil.printlnWithTimeAndThread("Total products in the Store: " + product, AnsiColorCode.FG_BLUE_BOLD);
         notify();
     }
