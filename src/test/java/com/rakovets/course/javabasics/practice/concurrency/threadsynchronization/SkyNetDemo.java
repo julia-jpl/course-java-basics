@@ -2,21 +2,24 @@ package com.rakovets.course.javabasics.practice.concurrency.threadsynchronizatio
 
 import com.rakovets.course.javabasics.practice.concurrency.threadsynchronization.skynet.*;
 
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Map;
+
 public class SkyNetDemo {
     public static void main(String[] args) {
-        CommonList res = new CommonList();
-        RobotWednesday storeWednesday = new RobotWednesday();
-        RobotWorld storeWorld = new RobotWorld();
+        LinkedList<String> linkedList = new LinkedList<>();
+        CommonList res = new CommonList(linkedList);
         Factory factory = new Factory(res);
         Thread threadFactory = new Thread(factory);
         World world = new World(res);
         Thread threadWorld = new Thread(world);
         Wednesday wednesday = new Wednesday(res);
         Thread threadWednesday = new Thread(wednesday);
-        for (int i = 1; i <= 100; i++) {
             threadFactory.start();
-            threadWednesday.start();
             threadWorld.start();
+            threadWednesday.start();
         }
-    }
+
+
 }
