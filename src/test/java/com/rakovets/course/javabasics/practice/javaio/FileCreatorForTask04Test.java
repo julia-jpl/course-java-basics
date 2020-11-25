@@ -6,7 +6,7 @@ import java.io.IOException;
 
 public class FileCreatorForTask04Test {
     public static void main(String[] args) {
-        File test = new File( "E:" + File.separator + "home" + File.separator + "portnova" + File.separator + "course-java-basics" + File.separator + "src" + File.separator + "test" + File.separator +"resources" + File.separator + "task04.txt");
+        File test = new File( "src" + File.separator + "test" + File.separator +"resources" + File.separator + "task04.txt");
         try {
             boolean create = test.createNewFile();
         } catch (IOException e) {

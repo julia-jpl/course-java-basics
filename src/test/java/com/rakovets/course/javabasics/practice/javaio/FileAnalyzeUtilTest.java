@@ -58,38 +58,38 @@ public class FileAnalyzeUtilTest {
 
     @Test
     void getListStringsOfFileTest() {
-            Assertions.assertEquals(listTask2,  fileAnalyzeUtil.getListStringsOfFile("E:" + File.separator + "home" + File.separator + "portnova" + File.separator + "course-java-basics" + File.separator + "src" + File.separator + "test" + File.separator +"resources" + File.separator + "task02.txt"));
+            Assertions.assertEquals(listTask2,  fileAnalyzeUtil.getListStringsOfFile("src" + File.separator + "test" + File.separator +"resources" + File.separator + "task02.txt"));
     }
     @Test
     void getListOfWordsStartedWithVowelTest() {
-            Assertions.assertEquals(listTask3, fileAnalyzeUtil.getListOfWordsStartedWithVowel("E:" + File.separator + "home" + File.separator + "portnova" + File.separator + "course-java-basics" + File.separator + "src" + File.separator + "test" + File.separator +"resources" + File.separator + "task03.txt"));
+            Assertions.assertEquals(listTask3, fileAnalyzeUtil.getListOfWordsStartedWithVowel("src" + File.separator + "test" + File.separator +"resources" + File.separator + "task03.txt"));
     }
     @Test
     void getListOfWordsTest() {
-            Assertions.assertEquals(listTask4, fileAnalyzeUtil.getListOfWords("E:" + File.separator + "home" + File.separator + "portnova" + File.separator + "course-java-basics" + File.separator + "src" + File.separator + "test" + File.separator +"resources" + File.separator + "task04.txt"));
+            Assertions.assertEquals(listTask4, fileAnalyzeUtil.getListOfWords("src" + File.separator + "test" + File.separator +"resources" + File.separator + "task04.txt"));
     }
     @Test
     void getFrequencyOfLettersTest() {
-            Assertions.assertEquals(mapTask6, fileAnalyzeUtil.getFrequencyOfLetters("E:" + File.separator + "home" + File.separator + "portnova" + File.separator + "course-java-basics" + File.separator + "src" + File.separator + "test" + File.separator + "resources" + File.separator + "task06.txt"));
+            Assertions.assertEquals(mapTask6, fileAnalyzeUtil.getFrequencyOfLetters( "src" + File.separator + "test" + File.separator + "resources" + File.separator + "task06.txt"));
     }
     @Test
     void getFrequencyOfWordsTest() {
-            Assertions.assertEquals(mapTask7, fileAnalyzeUtil.getFrequencyOfWords("E:" + File.separator + "home" + File.separator + "portnova" + File.separator + "course-java-basics" + File.separator + "src" + File.separator + "test" + File.separator + "resources" + File.separator + "task07.txt"));
+            Assertions.assertEquals(mapTask7, fileAnalyzeUtil.getFrequencyOfWords("src" + File.separator + "test" + File.separator + "resources" + File.separator + "task07.txt"));
     }
     @Test
     void getSortedNumbersTest() {
-            fileAnalyzeUtil.getSortedNumbers("E:" + File.separator + "home" + File.separator + "portnova" + File.separator + "course-java-basics" + File.separator + "src" + File.separator + "test" + File.separator +"resources" + File.separator + "task08.txt");
+            fileAnalyzeUtil.getSortedNumbers("src" + File.separator + "test" + File.separator +"resources" + File.separator + "task08.txt");
     }
     @Test
     void getAcademicPerformanceTest() {
-            Assertions.assertEquals(mapTask9, fileAnalyzeUtil.getAcademicPerformance("E:" + File.separator + "home" + File.separator + "portnova" + File.separator + "course-java-basics" + File.separator + "src" + File.separator + "test" + File.separator +"resources" + File.separator + "task09.txt"));
+            Assertions.assertEquals(mapTask9, fileAnalyzeUtil.getAcademicPerformance("src" + File.separator + "test" + File.separator +"resources" + File.separator + "task09.txt"));
     }
     @Test
     void getReplacedModifiersTest() {
-            fileAnalyzeUtil.getReplacedModifiers("E:" + File.separator + "home" + File.separator + "portnova" + File.separator + "course-java-basics" + File.separator + "src" + File.separator + "test" + File.separator +"resources" + File.separator + "task10.txt", "private", "public");
+            fileAnalyzeUtil.getReplacedModifiers( "src" + File.separator + "test" + File.separator +"resources" + File.separator + "task10.txt", "private", "public");
     }
     @Test
     void getMaxCombinationTest() {
-        Assertions.assertEquals(listTask5, fileAnalyzeUtil.getMaxCombination("E:" + File.separator + "home" + File.separator + "portnova" + File.separator + "course-java-basics" + File.separator + "src" + File.separator + "test" + File.separator +"resources" + File.separator + "task05.txt"));
+        Assertions.assertEquals(listTask5, fileAnalyzeUtil.getMaxCombination("src" + File.separator + "test" + File.separator +"resources" + File.separator + "task05.txt"));
     }
 }
