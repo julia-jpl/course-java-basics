@@ -15,11 +15,7 @@ public class CashDesk {
     public Deque<Customer> getQueueCustomers() {
         return queueCustomers;
     }
-    public void takeQueue(Customer customer) {
-        for (Customer item : queueCustomers) {
-            if ()
-        }
-    }
+
 
     public String getCustomerGoods() {
         String goods = "";

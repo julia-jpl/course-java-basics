@@ -4,7 +4,6 @@ import java.util.Map;
 
 public class World implements Runnable {
     private final CommonList res;
-    private RobotWorld store;
     private int handPare;
     private int feetPare;
     private String torso = "torso";

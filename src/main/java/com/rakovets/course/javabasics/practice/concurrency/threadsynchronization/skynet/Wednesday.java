@@ -2,7 +2,6 @@ package com.rakovets.course.javabasics.practice.concurrency.threadsynchronizatio
 
 public class Wednesday implements Runnable {
     private final CommonList res;
-    private RobotWednesday store;
     private int handPare;
     private int feetPare;
     private String torso = "torso";
