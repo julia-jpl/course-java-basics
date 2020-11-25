@@ -17,7 +17,9 @@ public class Wednesday implements Runnable {
     @Override
     public void run() {
         for (int i = 1; i <= 100; i++) {
+            for (int j = 1; j <= 5; j ++) {
                 res.getWednesday();
+            }
         }
         System.out.println("Wednesday's details: hands-" + res.mapWednesday.get(hand) + ", feet-" + res.mapWednesday.get(feet) +
                 ", heads-" + res.mapWednesday.get(head) + ", torso-" + res.mapWednesday.get(torso));

@@ -30,15 +30,19 @@ public class CommonList {
             switch (number) {
                 case 1:
                     list.addLast(torso);
+                    System.out.println("Fabric produced " + torso);
                     break;
                 case 2:
                     list.addLast(head);
+                    System.out.println("Fabric produced " + head);
                     break;
                 case 3:
                     list.addLast(hand);
+                    System.out.println("Fabric produced " + hand);
                     break;
                 case 4:
                     list.addLast(feet);
+                    System.out.println("Fabric produced " + feet);
                     break;
                 default:
                     break;
@@ -54,16 +58,16 @@ public class CommonList {
                 e.printStackTrace();
             }
         }
-        for (int i = 1; i <= 5; i++) {
             if (list.peekFirst() != null) {
                 String detail = list.removeFirst();
+                System.out.println("World got " + detail);
                 if (mapWorld.containsKey(detail)) {
                     mapWorld.put(detail, mapWorld.get(detail) + 1);
                 } else {
                     mapWorld.put(detail, 1);
                 }
             }
-        } notifyAll();
+        notifyAll();
     }
 
     public synchronized void getWednesday() {
@@ -74,16 +78,16 @@ public class CommonList {
                 e.printStackTrace();
             }
         }
-        for (int i = 1; i <= 5; i++) {
             if (list.peekFirst() != null) {
                 String detail = list.removeFirst();
+                System.out.println("Wednesday got " + detail);
                 if (mapWednesday.containsKey(detail)) {
                     mapWednesday.put(detail, mapWednesday.get(detail) + 1);
                 } else {
                     mapWednesday.put(detail, 1);
                 }
             }
-        } notifyAll();
+         notifyAll();
     }
 }
 

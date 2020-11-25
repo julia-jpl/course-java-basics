@@ -19,7 +19,9 @@ public class World implements Runnable {
     @Override
     public void run() {
         for (int i = 1; i <= 100; i++) {
-            res.getWorld();
+            for (int j = 1; j <= 5; j++) {
+                res.getWorld();
+            }
         }
         System.out.println("World's details: hands-" + res.mapWorld.get(hand) + ", feet-" + res.mapWorld.get(feet) +
                 ", heads-" + res.mapWorld.get(head) + ", torso-" + res.mapWorld.get(torso));
