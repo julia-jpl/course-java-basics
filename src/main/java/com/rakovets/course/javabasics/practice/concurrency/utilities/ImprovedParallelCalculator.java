@@ -14,14 +14,11 @@ public class ImprovedParallelCalculator {
         public static void getArrayAndMaxArrayElement(List<Integer[]> list) {
             for (int i = 0; i < list.size(); i++) {
                 System.out.println("Number of threads is 1: Array " + i + " length = " + list.get(i).length);
-                int maxElement = 0;
+                long sum = 0;
                 for(int j = 0; j < list.get(i).length; j++) {
-                    maxElement = list.get(i)[0];
-                    if (maxElement < list.get(i)[j]) {
-                        maxElement = list.get(i)[j];
+                    sum += list.get(i)[j];
                     }
-                }
-                System.out.println("Number of threads is 1. Max element of array " + i + " = " + maxElement);
+                System.out.println("Number of threads is 1. The sum of all elements of array " + i + " = " + sum);
             }
         }
         public static List<Integer[]> getListOfArraysWithRandomDigital(int listSize) {
@@ -39,8 +36,12 @@ public class ImprovedParallelCalculator {
 
         public static void getCalculationInSeveralThreads(int numberOfThreads, List<Integer[]> list) {
             ExecutorService executorService = Executors.newFixedThreadPool(numberOfThreads);
+            long timeStart = System.currentTimeMillis();
             for (int n = 0; n < numberOfThreads; n++) {
-                executorService.execute();
+                executorService.execute(new ParallelThread(numberOfThreads, list, n));
             }
+            executorService.shutdown();
+            long timeSpent = System.currentTimeMillis() - timeStart;
+            System.out.println("Calculation in " + numberOfThreads + "threads spent " + timeSpent + "millis.");
         }
     }
