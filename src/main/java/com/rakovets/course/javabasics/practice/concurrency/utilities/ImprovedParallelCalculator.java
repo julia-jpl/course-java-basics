@@ -1,13 +1,11 @@
 package com.rakovets.course.javabasics.practice.concurrency.utilities;
 
+import java.util.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 import java.util.concurrent.ThreadPoolExecutor;
 
 public class ImprovedParallelCalculator {
@@ -37,9 +35,14 @@ public class ImprovedParallelCalculator {
         public static void getCalculationInSeveralThreads(int numberOfThreads, List<Integer[]> list) {
             ExecutorService executorService = Executors.newFixedThreadPool(numberOfThreads);
             long timeStart = System.currentTimeMillis();
-            for (int n = 0; n < numberOfThreads; n++) {
-                executorService.execute(new ParallelThread(numberOfThreads, list, n));
-            }
+                Iterator<Integer[]> iter = list.iterator();
+                int i = 0;
+                while (iter.hasNext()) {
+                    Integer[] array = iter.next();
+                    Future sum = executorService.submit(new ParallelThread(array));
+                    i++;
+                    System.out.println("The sum of all elements of array " + i + " = " + sum);
+                }
             executorService.shutdown();
             long timeSpent = System.currentTimeMillis() - timeStart;
             System.out.println("Calculation in " + numberOfThreads + "threads spent " + timeSpent + "millis.");
