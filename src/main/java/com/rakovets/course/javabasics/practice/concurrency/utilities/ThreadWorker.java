@@ -21,7 +21,7 @@ public class ThreadWorker implements Runnable {
                 timeSeconds = commonResource.deque.pollFirst();
                 try {
                     Thread.sleep(timeSeconds * 1000);
-                    System.out.println("I slept " + timeSeconds + " seconds");
+                    System.out.println("I slept " + timeSeconds + " seconds" + Thread.currentThread().getName());
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
