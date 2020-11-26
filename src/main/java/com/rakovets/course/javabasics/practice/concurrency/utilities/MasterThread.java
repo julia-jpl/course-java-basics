@@ -3,7 +3,6 @@ package com.rakovets.course.javabasics.practice.concurrency.utilities;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class MasterThread {
     public class MasterThread implements Runnable {
         private boolean isRun = true;
         private CommonResource commonResource;
@@ -32,4 +31,4 @@ public class MasterThread {
         }
     }
 
-}
+
