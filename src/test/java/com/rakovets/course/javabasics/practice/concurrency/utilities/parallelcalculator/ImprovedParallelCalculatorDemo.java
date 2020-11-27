@@ -1,4 +1,6 @@
-package com.rakovets.course.javabasics.practice.concurrency.utilities;
+package com.rakovets.course.javabasics.practice.concurrency.utilities.parallelcalculator;
+
+import com.rakovets.course.javabasics.practice.concurrency.utilities.parallelcalculator.ImprovedParallelCalculator;
 
 import java.util.List;
 
