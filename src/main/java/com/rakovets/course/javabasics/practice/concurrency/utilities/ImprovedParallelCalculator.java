@@ -3,10 +3,7 @@ package com.rakovets.course.javabasics.practice.concurrency.utilities;
 import java.util.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
-import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.*;
 
 public class ImprovedParallelCalculator {
         public static void getArrayAndMaxArrayElement(List<Integer[]> list) {
@@ -39,9 +36,14 @@ public class ImprovedParallelCalculator {
                 int i = 0;
                 while (iter.hasNext()) {
                     Integer[] array = iter.next();
-                    Future sum = executorService.submit(new ParallelThread(array));
+                    Future<Integer> result = executorService.submit(new ParallelThread(array));
                     i++;
-                    System.out.println("The sum of all elements of array " + i + " = " + sum);
+                    try {
+                        Integer sum = result.get();
+                        System.out.println("The sum of all elements of array " + i + " = " + sum);
+                    } catch (InterruptedException | ExecutionException e) {
+                        e.printStackTrace();
+                    }
                 }
             executorService.shutdown();
             long timeSpent = System.currentTimeMillis() - timeStart;
