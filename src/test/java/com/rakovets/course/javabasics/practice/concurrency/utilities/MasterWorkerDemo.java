@@ -10,14 +10,18 @@ public class MasterWorkerDemo {
     public static void main(String[] args) {
         CommonResource commonResource = new CommonResource();
         MasterTask masterTask = new MasterTask(commonResource);
-        ThreadWorker threadWorker = new ThreadWorker(commonResource);
+        WorkerTask2 workerTask2 = new WorkerTask2(commonResource);
+        WorkerTask1 workerTask1 = new WorkerTask1(commonResource);
 
         ExecutorService executorMaster = Executors.newSingleThreadExecutor();
-        ExecutorService executorWorkers = Executors.newFixedThreadPool(3);
+        ExecutorService executorWorkers = Executors.newFixedThreadPool(5);
         boolean isRun = true;
         while (isRun) {
             Future<Integer> result = executorMaster.submit(masterTask);
-            executorWorkers.submit(threadWorker);
+            if (commonResource.deque.peek() != null) {
+                executorWorkers.submit(workerTask1);
+            } else if ()
+            executorWorkers.submit(workerTask2);
             try {
                 Integer number = result.get();
                 if (number != -1) {
@@ -31,7 +35,6 @@ public class MasterWorkerDemo {
             } catch (ExecutionException | InterruptedException e) {
                 e.printStackTrace();
             }
-
         }
     }
 }

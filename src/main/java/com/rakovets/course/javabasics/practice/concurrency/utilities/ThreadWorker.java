@@ -20,7 +20,7 @@ public class ThreadWorker implements Runnable {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-            } else {
+            } else if (commonResource.deque.isEmpty()) {
                 System.out.println("...");
                 try {
                     Thread.sleep(1000);
