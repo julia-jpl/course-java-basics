@@ -1,4 +1,6 @@
-package com.rakovets.course.javabasics.practice.concurrency.utilities;
+package com.rakovets.course.javabasics.practice.concurrency.utilities.masterworker;
+
+import com.rakovets.course.javabasics.practice.concurrency.utilities.masterworker.CommonResource;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;

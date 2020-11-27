@@ -1,4 +1,4 @@
-package com.rakovets.course.javabasics.practice.concurrency.utilities;
+package com.rakovets.course.javabasics.practice.concurrency.utilities.masterworker;
 
 import java.util.ArrayDeque;
 import java.util.Deque;

@@ -1,6 +1,6 @@
-package com.rakovets.course.javabasics.practice.concurrency.utilities;
+package com.rakovets.course.javabasics.practice.concurrency.utilities.masterworker;
 
-import java.util.concurrent.locks.ReentrantLock;
+import com.rakovets.course.javabasics.practice.concurrency.utilities.masterworker.CommonResource;
 
 public class ThreadWorker implements Runnable {
     private CommonResource commonResource;
